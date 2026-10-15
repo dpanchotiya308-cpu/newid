@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import '../App_Style/App_Screen_Style.dart';
 import 'verification_screen.dart'; 
 import '../Supplier/supplier_register_screen.dart';   
-import 'login_screen.dart'; // Login Screen import કરેલું છે
+import 'login_screen.dart'; // Imported Login Screen
 
 class ForgotPasswordScreen extends StatefulWidget {
   const ForgotPasswordScreen({super.key});
@@ -30,7 +30,7 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
         ),
       );
 
-      // Send બટન પર ક્લિક થતાં સીધું Verification Screen પર જશે
+      // Navigate directly to Verification Screen on Send button press
       Navigator.push(
         context,
         MaterialPageRoute(
@@ -121,7 +121,7 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
                 ),
                 const SizedBox(height: 18),
 
-                // 4. "Back to Sign In" Centered Link (હવે ૧૦૦% કામ કરશે)
+                // 4. "Back to Sign In" Centered Link
                 Center(
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.center,
@@ -133,7 +133,7 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
                       GestureDetector(
                         behavior: HitTestBehavior.opaque,
                         onTap: () {
-                          // સીધું Login Screen પર જવા માટે
+                          // Navigate directly to Login Screen
                           Navigator.pushReplacement(
                             context,
                             MaterialPageRoute(

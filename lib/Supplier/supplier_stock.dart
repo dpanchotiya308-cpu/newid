@@ -153,7 +153,7 @@ class _SupplierStockScreenState extends State<SupplierStockScreen> {
     return Scaffold(
       backgroundColor: AppColors.primaryNavy,
 
-      // 👈 ૧. Supplier Header કૉલ કર્યો (Title: "Stock", Back Button, Menu Button)
+      // 👈 1. Supplier Header (Title: "Stock", Back Button, Menu Button)
       appBar: CustomHeader(
         title: 'Stock',
         showBackButton: true,
@@ -177,7 +177,7 @@ class _SupplierStockScreenState extends State<SupplierStockScreen> {
         },
       ),
 
-      // 👈 ૨. Body (Figma Supplier Theme Responsive & Scrollable)
+      // 👈 2. Body (Figma Supplier Theme Responsive & Scrollable)
       body: SafeArea(
         child: Center(
           child: ConstrainedBox(
@@ -302,7 +302,7 @@ class _SupplierStockScreenState extends State<SupplierStockScreen> {
         ),
       ),
 
-      // 👈 ૩. Supplier Footer કૉલ કર્યો
+      // 👈 3. Supplier Footer
       bottomNavigationBar: CustomFooter(
         selectedIndex: _currentNavIndex,
         onItemTapped: _onNavTapped,
@@ -320,7 +320,7 @@ class _SupplierStockScreenState extends State<SupplierStockScreen> {
     );
   }
 
-  // 👈 Figma Light Grey Material Card મુજબનું Stock Card Widget
+  // 👈 Stock Card Widget as per Figma Light Grey Material Card
   Widget _buildStockCard(_StockItem item) {
     return Container(
       decoration: AppStyles.stockCardDecoration,

@@ -20,9 +20,26 @@ class SupplierSendOrderScreen extends StatefulWidget {
 class _SupplierSendOrderScreenState extends State<SupplierSendOrderScreen> {
   final int _currentNavIndex = 1; // Current Order / Orders related tab
 
+  // 0. Company Selection Dropdown
+  String _selectedCompany = 'Excel Machinery pvt.ltd';
+  final List<String> _companyOptions = [
+    'Excel Machinery pvt.ltd',
+    'Tech Corp Inc.',
+    'Alpha Ind.',
+    'Global Logistics',
+    'Apex Steel & Alloys',
+    'SubSetu Manufacturing Ltd',
+  ];
+
   // 1. Material Dropdown Selection (Default 'EN-D')
   String _selectedMaterial = 'EN-D';
-  final List<String> _materialOptions = ['EN-D', 'EN-8', 'EN-24', 'Mild Steel', 'SS-304'];
+  final List<String> _materialOptions = [
+    'EN-D',
+    'EN-8',
+    'EN-24',
+    'Mild Steel',
+    'SS-304',
+  ];
 
   // 2. Width Input Controller (Default '20')
   late final TextEditingController _widthController;
@@ -76,7 +93,7 @@ class _SupplierSendOrderScreenState extends State<SupplierSendOrderScreen> {
     ScaffoldMessenger.of(context).showSnackBar(
       SnackBar(
         content: Text(
-          'Order Sent Successfully: $_selectedMaterial, $_selectedDiagram, $length$_selectedUnit, $piece Pieces',
+          'Order Sent to $_selectedCompany: $_selectedMaterial, $_selectedDiagram, $length$_selectedUnit, $piece Pieces',
         ),
         backgroundColor: Colors.green,
         duration: const Duration(seconds: 2),
@@ -95,7 +112,9 @@ class _SupplierSendOrderScreenState extends State<SupplierSendOrderScreen> {
     } else if (index == 1) {
       Navigator.pushReplacement(
         context,
-        MaterialPageRoute(builder: (context) => const SupplierCurrentOrderScreen()),
+        MaterialPageRoute(
+          builder: (context) => const SupplierCurrentOrderScreen(),
+        ),
       );
     } else if (index == 2) {
       Navigator.pushReplacement(
@@ -105,7 +124,9 @@ class _SupplierSendOrderScreenState extends State<SupplierSendOrderScreen> {
     } else if (index == 3) {
       Navigator.pushReplacement(
         context,
-        MaterialPageRoute(builder: (context) => const SupplierNotificationScreen()),
+        MaterialPageRoute(
+          builder: (context) => const SupplierNotificationScreen(),
+        ),
       );
     }
   }
@@ -143,14 +164,77 @@ class _SupplierSendOrderScreenState extends State<SupplierSendOrderScreen> {
       body: SafeArea(
         child: Center(
           child: ConstrainedBox(
-            constraints: const BoxConstraints(maxWidth: 550), // Responsive Constraint
+            constraints: const BoxConstraints(
+              maxWidth: 550,
+            ), // Responsive Constraint
             child: SingleChildScrollView(
               physics: const BouncingScrollPhysics(),
-              padding: const EdgeInsets.symmetric(horizontal: 28.0, vertical: 24.0),
+              padding: const EdgeInsets.symmetric(
+                horizontal: 28.0,
+                vertical: 24.0,
+              ),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   const SizedBox(height: 10),
+
+                  // 🏢 0. Row: Company Selection
+                  _buildSpecificationRow(
+                    label: 'Company',
+                    child: Container(
+                      height: 48,
+                      padding: const EdgeInsets.symmetric(horizontal: 14.0),
+                      decoration: AppStyles.sendOrderPillDecoration,
+                      child: DropdownButtonHideUnderline(
+                        child: DropdownButton<String>(
+                          value: _selectedCompany,
+                          icon: const Icon(
+                            Icons.keyboard_arrow_down_rounded,
+                            color: Colors.black,
+                            size: 26,
+                          ),
+                          isExpanded: true,
+                          style: AppTextStyles.sendOrderInputValue,
+                          dropdownColor: const Color(0xFFD6DBE1),
+                          items: _companyOptions.map((String value) {
+                            return DropdownMenuItem<String>(
+                              value: value,
+                              child: Row(
+                                children: [
+                                  const Icon(
+                                    Icons.apartment_rounded,
+                                    color: AppColors.accentOrange,
+                                    size: 18,
+                                  ),
+                                  const SizedBox(width: 8),
+                                  Expanded(
+                                    child: Text(
+                                      value,
+                                      overflow: TextOverflow.ellipsis,
+                                      style: const TextStyle(
+                                        color: Colors.black87,
+                                        fontSize: 14,
+                                        fontWeight: FontWeight.w600,
+                                      ),
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            );
+                          }).toList(),
+                          onChanged: (String? newValue) {
+                            if (newValue != null) {
+                              setState(() {
+                                _selectedCompany = newValue;
+                              });
+                            }
+                          },
+                        ),
+                      ),
+                    ),
+                  ),
+
+                  const SizedBox(height: 28),
 
                   // 🏷️ 1. Row: Material
                   _buildSpecificationRow(
@@ -260,14 +344,21 @@ class _SupplierSendOrderScreenState extends State<SupplierSendOrderScreen> {
                           flex: 3,
                           child: Container(
                             height: 48,
-                            padding: const EdgeInsets.symmetric(horizontal: 14.0),
+                            padding: const EdgeInsets.symmetric(
+                              horizontal: 14.0,
+                            ),
                             decoration: AppStyles.sendOrderPillDecoration,
                             child: Center(
                               child: TextField(
                                 controller: _lengthController,
-                                keyboardType: const TextInputType.numberWithOptions(decimal: true),
+                                keyboardType:
+                                    const TextInputType.numberWithOptions(
+                                      decimal: true,
+                                    ),
                                 inputFormatters: [
-                                  FilteringTextInputFormatter.allow(RegExp(r'^\d*\.?\d*')),
+                                  FilteringTextInputFormatter.allow(
+                                    RegExp(r'^\d*\.?\d*'),
+                                  ),
                                 ],
                                 textAlign: TextAlign.center,
                                 style: AppTextStyles.sendOrderInputValue,
@@ -285,7 +376,9 @@ class _SupplierSendOrderScreenState extends State<SupplierSendOrderScreen> {
                           flex: 2,
                           child: Container(
                             height: 48,
-                            padding: const EdgeInsets.symmetric(horizontal: 12.0),
+                            padding: const EdgeInsets.symmetric(
+                              horizontal: 12.0,
+                            ),
                             decoration: AppStyles.sendOrderPillDecoration,
                             child: DropdownButtonHideUnderline(
                               child: DropdownButton<String>(
@@ -343,17 +436,20 @@ class _SupplierSendOrderScreenState extends State<SupplierSendOrderScreen> {
 
                   const SizedBox(height: 52),
 
-                  // 🔘 Send Button
-                  Center(
-                    child: SizedBox(
-                      width: 240,
-                      height: 56,
-                      child: ElevatedButton(
-                        onPressed: _onSend,
-                        style: AppStyles.sendOrderButtonStyle,
-                        child: const Text(
-                          'Send',
-                          style: AppTextStyles.sendOrderButtonText,
+                  // 🔘 Send Order Button (Properly Centered across the screen)
+                  SizedBox(
+                    width: double.infinity,
+                    child: Center(
+                      child: SizedBox(
+                        width: 240,
+                        height: 56,
+                        child: ElevatedButton(
+                          onPressed: _onSend,
+                          style: AppStyles.sendOrderButtonStyle,
+                          child: const Text(
+                            'Send Order',
+                            style: AppTextStyles.sendOrderButtonText,
+                          ),
                         ),
                       ),
                     ),
@@ -385,10 +481,7 @@ class _SupplierSendOrderScreenState extends State<SupplierSendOrderScreen> {
       children: [
         SizedBox(
           width: 120,
-          child: Text(
-            label,
-            style: AppTextStyles.sendOrderLabel,
-          ),
+          child: Text(label, style: AppTextStyles.sendOrderLabel),
         ),
         const SizedBox(width: 12),
         Expanded(child: child),

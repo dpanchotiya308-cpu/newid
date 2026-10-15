@@ -29,7 +29,7 @@ class BusinessHeader extends StatelessWidget implements PreferredSizeWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      // 👈 ફૂટર જેવો જ સેમ ડાર્ક નેવી કલર
+      // 👈 Same dark navy color as footer
       color: AppColors.primaryNavy,
       child: SafeArea(
         bottom: false,
@@ -38,7 +38,7 @@ class BusinessHeader extends StatelessWidget implements PreferredSizeWidget {
           padding: const EdgeInsets.symmetric(horizontal: 16.0),
           child: Row(
             children: [
-              // 👈 ૧. લેફ્ટ: Back Button અથવા Profile Icon
+              // 👈 1. Left: Back Button or Profile Icon
               if (showBackButton)
                 IconButton(
                   padding: EdgeInsets.zero,
@@ -74,7 +74,7 @@ class BusinessHeader extends StatelessWidget implements PreferredSizeWidget {
 
               const SizedBox(width: 14),
 
-              // 👈 ૨. ટાઈટલ અને સબટાઇટલ
+              // 👈 2. Title and Subtitle
               Expanded(
                 child: Column(
                   mainAxisSize: MainAxisSize.min,
@@ -100,7 +100,7 @@ class BusinessHeader extends StatelessWidget implements PreferredSizeWidget {
                 ),
               ),
 
-              // 👈 ૩. રાઇટ હેમ્બર્ગર મેનુ આઈકોન અથવા સ્પેસર
+              // 👈 3. Right Hamburger Menu Icon or Spacer
               if (showMenuButton)
                 IconButton(
                   onPressed: onMenuTap ?? () {},

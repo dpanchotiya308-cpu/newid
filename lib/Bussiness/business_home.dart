@@ -2,11 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_application_1/Resources/business_header.dart'; // 👈 Business Header
 import 'package:flutter_application_1/Resources/business_footer.dart'; // 👈 Business Footer
 import '../App_Style/App_Screen_Style.dart';
-import 'business_setting.dart'; // 👈 તમારી Setting ફાઈલનું નામ
+import 'business_setting.dart'; // 👈 Business Settings screen import
 import 'business_notification.dart';
 import 'business_menu.dart';
 import 'business_current_order.dart';
 import 'business_profile.dart';
+import 'business_order_details.dart';
 
 class BusinessHomeScreen extends StatefulWidget {
   const BusinessHomeScreen({super.key});
@@ -18,25 +19,29 @@ class BusinessHomeScreen extends StatefulWidget {
 class _BusinessHomeScreenState extends State<BusinessHomeScreen> {
   int _currentNavIndex = 0; // 0 = Home Tab Active
 
-  // 👈 નેવિગેશન બાર ટેબ ક્લિક હેન્ડલર
+  // 👈 Navigation bar tab click handler
   void _onNavTapped(int index) {
     if (index == 1) {
-      // Current Order પેજ પર જશે
+      // Navigate to Current Order page
       Navigator.push(
         context,
-        MaterialPageRoute(builder: (context) => const BusinessCurrentOrderScreen()),
+        MaterialPageRoute(
+          builder: (context) => const BusinessCurrentOrderScreen(),
+        ),
       );
     } else if (index == 2) {
-      // Settings પેજ પર જશે
+      // Navigate to Settings page
       Navigator.push(
         context,
         MaterialPageRoute(builder: (context) => const SettingScreen()),
       );
     } else if (index == 3) {
-      // Notification પેજ પર જશે
+      // Navigate to Notification page
       Navigator.push(
         context,
-        MaterialPageRoute(builder: (context) => const BusinessNotificationScreen()),
+        MaterialPageRoute(
+          builder: (context) => const BusinessNotificationScreen(),
+        ),
       );
     } else {
       setState(() {
@@ -50,7 +55,7 @@ class _BusinessHomeScreenState extends State<BusinessHomeScreen> {
     return Scaffold(
       backgroundColor: AppColors.primaryNavy,
 
-      // 👈 ૧. Business Header (Business Home Title & Menu)
+      // 👈 1. Business Header (Business Home Title & Menu)
       appBar: BusinessHeader(
         onProfileTap: () {
           Navigator.push(
@@ -63,14 +68,12 @@ class _BusinessHomeScreenState extends State<BusinessHomeScreen> {
         onMenuTap: () {
           Navigator.push(
             context,
-            MaterialPageRoute(
-              builder: (context) => const BusinessMenuScreen(),
-            ),
+            MaterialPageRoute(builder: (context) => const BusinessMenuScreen()),
           );
         },
       ),
 
-      // 👈 ૨. Body (Total Job: 24, Pending: 10, Job Inbox)
+      // 👈 2. Body (Total Job: 24, Pending: 10, Job Inbox)
       body: SingleChildScrollView(
         physics: const BouncingScrollPhysics(),
         padding: const EdgeInsets.symmetric(horizontal: 20.0, vertical: 16.0),
@@ -85,7 +88,7 @@ class _BusinessHomeScreenState extends State<BusinessHomeScreen> {
 
             const SizedBox(height: 18),
 
-            // 👈 2x2 Stats Summary Grid (તમારા બિઝનેસ સ્ક્રીનશોટ મુજબ)
+            // 👈 2x2 Stats Summary Grid (as per screenshot)
             Row(
               children: [
                 Expanded(
@@ -142,6 +145,22 @@ class _BusinessHomeScreenState extends State<BusinessHomeScreen> {
             _buildOrderCard(
               orderTitle: 'Order #1 - Tech Corp Inc.',
               orderDate: 'Date: 18 Feb 2026',
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const BusinessOrderDetailsScreen(
+                      orderTitle: 'Order #1 Details',
+                      companyName: 'Tech Corp Inc.',
+                      status: 'PENDING',
+                      orderedDate: '18 Feb 2026',
+                      materialGrade: 'Mild Steel (EN8)',
+                      tolerances: '±0.05 mm',
+                      heatTreatment: 'Required',
+                    ),
+                  ),
+                );
+              },
             ),
 
             const SizedBox(height: 14),
@@ -150,6 +169,22 @@ class _BusinessHomeScreenState extends State<BusinessHomeScreen> {
             _buildOrderCard(
               orderTitle: 'Order #2 - Alpha Ind.',
               orderDate: 'Date: 17 Feb 2026',
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const BusinessOrderDetailsScreen(
+                      orderTitle: 'Order #2 Details',
+                      companyName: 'Alpha Ind.',
+                      status: 'PENDING',
+                      orderedDate: '17 Feb 2026',
+                      materialGrade: 'Mild Steel (EN8)',
+                      tolerances: '±0.05 mm',
+                      heatTreatment: 'Required',
+                    ),
+                  ),
+                );
+              },
             ),
 
             const SizedBox(height: 24),
@@ -157,7 +192,7 @@ class _BusinessHomeScreenState extends State<BusinessHomeScreen> {
         ),
       ),
 
-      // 👈 ૩. Business Footer (Home, Orders, Settings, Notification)
+      // 👈 3. Business Footer (Home, Orders, Settings, Notification)
       bottomNavigationBar: BusinessFooter(
         selectedIndex: _currentNavIndex,
         onItemTapped: _onNavTapped,
@@ -177,15 +212,9 @@ class _BusinessHomeScreenState extends State<BusinessHomeScreen> {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text(
-            title,
-            style: AppTextStyles.statCardLabel,
-          ),
+          Text(title, style: AppTextStyles.statCardLabel),
           const SizedBox(height: 8),
-          Text(
-            value,
-            style: AppTextStyles.statCardValue(valueColor),
-          ),
+          Text(value, style: AppTextStyles.statCardValue(valueColor)),
         ],
       ),
     );
@@ -195,24 +224,23 @@ class _BusinessHomeScreenState extends State<BusinessHomeScreen> {
   Widget _buildOrderCard({
     required String orderTitle,
     required String orderDate,
+    VoidCallback? onTap,
   }) {
-    return Container(
-      width: double.infinity,
-      padding: const EdgeInsets.symmetric(horizontal: 18.0, vertical: 18.0),
-      decoration: AppStyles.orderCardNavyDecoration,
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Text(
-            orderTitle,
-            style: AppTextStyles.orderCardTitle,
-          ),
-          const SizedBox(height: 6),
-          Text(
-            orderDate,
-            style: AppTextStyles.orderCardDate,
-          ),
-        ],
+    return GestureDetector(
+      behavior: HitTestBehavior.opaque,
+      onTap: onTap,
+      child: Container(
+        width: double.infinity,
+        padding: const EdgeInsets.symmetric(horizontal: 18.0, vertical: 18.0),
+        decoration: AppStyles.orderCardNavyDecoration,
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(orderTitle, style: AppTextStyles.orderCardTitle),
+            const SizedBox(height: 6),
+            Text(orderDate, style: AppTextStyles.orderCardDate),
+          ],
+        ),
       ),
     );
   }

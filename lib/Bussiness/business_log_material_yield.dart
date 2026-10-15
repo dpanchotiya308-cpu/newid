@@ -109,7 +109,7 @@ class _BusinessLogMaterialYieldScreenState
     return Scaffold(
       backgroundColor: AppColors.primaryNavy,
 
-      // 👈 ૧. Business Header (Back arrow, "Log Material Yield" Title, Hamburger Menu)
+      // 👈 1. Business Header (Back arrow, "Log Material Yield" Title, Hamburger Menu)
       appBar: BusinessHeader(
         title: 'Log Material Yield',
         showBackButton: true,
@@ -132,7 +132,7 @@ class _BusinessLogMaterialYieldScreenState
         },
       ),
 
-      // 👈 ૨. Body (Responsive and Scrollable)
+      // 👈 2. Body (Responsive and Scrollable)
       body: SafeArea(
         child: Center(
           child: ConstrainedBox(
@@ -258,7 +258,7 @@ class _BusinessLogMaterialYieldScreenState
         ),
       ),
 
-      // 👈 ૩. Business Footer (Active on Orders Tab)
+      // 👈 3. Business Footer (Active on Orders Tab)
       bottomNavigationBar: BusinessFooter(
         selectedIndex: _currentNavIndex,
         onItemTapped: _onNavTapped,

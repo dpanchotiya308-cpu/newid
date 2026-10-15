@@ -341,7 +341,7 @@ class _BusinessProfileScreenState extends State<BusinessProfileScreen> {
         return Scaffold(
           backgroundColor: AppColors.primaryNavy,
 
-          // 👈 ૧. Business Header (Title: "Business Profile", Back Button, Menu Button)
+          // 👈 1. Business Header (Title: "Business Profile", Back Button, Menu Button)
           appBar: BusinessHeader(
             title: 'Business Profile',
             showBackButton: true,
@@ -368,7 +368,7 @@ class _BusinessProfileScreenState extends State<BusinessProfileScreen> {
             },
           ),
 
-          // 👈 ૨. Body (Figma Page 23 Responsive & Scrollable)
+          // 👈 2. Body (Figma Page 23 Responsive & Scrollable)
           body: SafeArea(
             child: Center(
               child: ConstrainedBox(
@@ -526,7 +526,7 @@ class _BusinessProfileScreenState extends State<BusinessProfileScreen> {
             ),
           ),
 
-          // 👈 ૩. Business Footer (Active on Settings Tab)
+          // 👈 3. Business Footer (Active on Settings Tab)
           bottomNavigationBar: BusinessFooter(
             selectedIndex: _currentNavIndex,
             onItemTapped: _onNavTapped,

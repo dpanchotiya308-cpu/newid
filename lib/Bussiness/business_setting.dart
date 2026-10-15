@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_application_1/Bussiness/business_change_password.dart';
 import 'package:flutter_application_1/Bussiness/business_help&support.dart';
 import 'package:flutter_application_1/Resources/business_footer.dart';
-// 👈 Supplier ની જગ્યાએ Business ની ફાઈલો Import કરી
+// 👈 Imported Business files instead of Supplier
 import '../App_Style/App_Screen_Style.dart';
 import 'business_about_us.dart';
 import 'business_contact_us.dart';
@@ -19,25 +19,25 @@ class SettingScreen extends StatefulWidget {
 }
 
 class _SettingScreenState extends State<SettingScreen> {
-  // Footer માં Settings ટેબ (Index: 2) પસંદ કરેલું રહેશે
+  // Settings tab (Index: 2) will be selected in Footer
   final int _currentNavIndex = 2;
 
-  // 👈 Business Footer Navigation હેન્ડલર
+  // 👈 Business Footer Navigation handler
   void _onNavTapped(int index) {
     if (index == 0) {
-      // 👈 Home ટેબ પર ક્લિક કરતાં Business Home Screen પર જશે
+      // 👈 Clicking Home tab navigates to Business Home Screen
       Navigator.pushReplacement(
         context,
         MaterialPageRoute(builder: (context) => const BusinessHomeScreen()),
       );
     } else if (index == 1) {
-      // 👈 Current Order ટેબ પર ક્લિક કરતાં Business Current Order Screen પર જશે
+      // 👈 Clicking Current Order tab navigates to Business Current Order Screen
       Navigator.pushReplacement(
         context,
         MaterialPageRoute(builder: (context) => const BusinessCurrentOrderScreen()),
       );
     } else if (index == 3) {
-      // 👈 Notification ટેબ પર ક્લિક કરતાં Business Notification Screen પર જશે
+      // 👈 Clicking Notification tab navigates to Business Notification Screen
       Navigator.pushReplacement(
         context,
         MaterialPageRoute(builder: (context) => const BusinessNotificationScreen()),
@@ -75,7 +75,7 @@ class _SettingScreenState extends State<SettingScreen> {
             ElevatedButton(
               style: AppStyles.dialogConfirmButtonStyle,
               onPressed: () {
-                Navigator.pop(dialogContext); // Dialog બંધ કરવા
+                Navigator.pop(dialogContext); // Close dialog
                 Navigator.pushAndRemoveUntil(
                   context,
                   MaterialPageRoute(builder: (context) => const LoginScreen()),
@@ -98,7 +98,7 @@ class _SettingScreenState extends State<SettingScreen> {
     return Scaffold(
       backgroundColor: AppColors.primaryNavy,
 
-      // 👈 ૨. Body (Business Settings Options)
+      // 👈 2. Body (Business Settings Options)
       body: SafeArea(
         child: SingleChildScrollView(
           physics: const BouncingScrollPhysics(),
@@ -121,7 +121,7 @@ class _SettingScreenState extends State<SettingScreen> {
                           color: AppColors.accentOrange,
                           size: 20,
                         ),
-                        // 👈 ૨. Back Button દબાવતાં સીધું Business Home Page પર રીડાયરેક્ટ થશે
+                        // 👈 2. Pressing Back Button navigates directly to Business Home Page
                         onPressed: () {
                           Navigator.pushReplacement(
                             context,
@@ -223,7 +223,7 @@ class _SettingScreenState extends State<SettingScreen> {
         ),
       ),
 
-      // 👈 ૩. Business Footer કૉલ કર્યો (Settings ટેબ સિલેક્ટેડ રહેશે)
+      // 👈 3. Business Footer (Settings tab selected)
       bottomNavigationBar: BusinessFooter(
         selectedIndex: _currentNavIndex, // 2 = Settings Icon Highlighted
         onItemTapped: _onNavTapped,

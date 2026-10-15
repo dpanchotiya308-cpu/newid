@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/Supplier/supplier_setting.dart';
+import 'business_setting.dart';
 import '../App_Style/App_Screen_Style.dart';
 
 class ChangePasswordScreen extends StatefulWidget {
@@ -34,7 +34,7 @@ class _ChangePasswordScreenState extends State<ChangePasswordScreen> {
     super.dispose();
   }
 
-  // 👈 2. Submit (Update) બટન પર ક્લિક કરતાં Settings Page પર રીડાયરેક્ટ થશે
+  // 👈 2. Redirects to Settings Page on clicking Submit (Update) button
   void _handleUpdate() {
     FocusScope.of(context).unfocus();
 
@@ -46,11 +46,15 @@ class _ChangePasswordScreenState extends State<ChangePasswordScreen> {
         ),
       );
 
-      // Settings Page પર Redirect કરવા માટે
-      Navigator.pushReplacement(
-        context,
-        MaterialPageRoute(builder: (context) => const SettingScreen()),
-      );
+      // Redirect to Settings Page
+      if (Navigator.canPop(context)) {
+        Navigator.pop(context);
+      } else {
+        Navigator.pushReplacement(
+          context,
+          MaterialPageRoute(builder: (context) => const SettingScreen()),
+        );
+      }
     }
   }
 
@@ -69,7 +73,7 @@ class _ChangePasswordScreenState extends State<ChangePasswordScreen> {
               children: [
                 const SizedBox(height: 6),
 
-                // 1. Top Header: Back Button (Settings Page પર Redirect થશે) + Centered Title
+                // 1. Top Header: Back Button (redirects to Settings Page) + Centered Title
                 Stack(
                   alignment: Alignment.center,
                   children: [
@@ -85,13 +89,17 @@ class _ChangePasswordScreenState extends State<ChangePasswordScreen> {
                         ),
                         onPressed: () {
                           FocusScope.of(context).unfocus();
-                          // 👈 3. Back Button દબાવતાં સીધું Settings Page પર જશે
-                          Navigator.pushReplacement(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) => const SettingScreen(),
-                            ),
-                          );
+                          // 👈 3. Pressing Back Button navigates directly to Settings Page
+                          if (Navigator.canPop(context)) {
+                            Navigator.pop(context);
+                          } else {
+                            Navigator.pushReplacement(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => const SettingScreen(),
+                              ),
+                            );
+                          }
                         },
                       ),
                     ),
@@ -260,7 +268,7 @@ class _ChangePasswordScreenState extends State<ChangePasswordScreen> {
                 ),
                 const SizedBox(height: 38),
 
-                // 6. "Update" Button (Settings Page પર Redirect થશે)
+                // 6. "Update" Button (redirects to Settings Page)
                 Center(
                   child: SizedBox(
                     width: 200,

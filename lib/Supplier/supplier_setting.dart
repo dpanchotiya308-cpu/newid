@@ -8,7 +8,7 @@ import '../Screen/login_screen.dart';
 import 'supplier_change_password_screen.dart';
 import 'supplier_notification.dart';
 import 'supplier_current_order.dart';
-import "./supplier_home.dart"; // 👈 Home Page Import કર્યું (જ્યાં રીડાયરેક્ટ થવું છે)
+import "./supplier_home.dart"; // 👈 Home Page imported for redirection
 
 class SettingScreen extends StatefulWidget {
   const SettingScreen({super.key});
@@ -18,25 +18,25 @@ class SettingScreen extends StatefulWidget {
 }
 
 class _SettingScreenState extends State<SettingScreen> {
-  // Footer માં Settings ટેબ (Index: 2) પસંદ કરેલું રહેશે
+  // Settings tab (Index: 2) will be selected in Footer
   final int _currentNavIndex = 2;
 
-  // 👈 Footer Navigation હેન્ડલર
+  // 👈 Footer Navigation handler
   void _onNavTapped(int index) {
     if (index == 0) {
-      // 👈 Home ટેબ પર ક્લિક કરતાં Home Screen પર જશે
+      // 👈 Clicking Home tab navigates to Home Screen
       Navigator.pushReplacement(
         context,
         MaterialPageRoute(builder: (context) => const HomeScreen()),
       );
     } else if (index == 1) {
-      // 👈 Current Order ટેબ પર ક્લિક કરતાં SupplierCurrentOrderScreen પર જશે
+      // 👈 Clicking Current Order tab navigates to SupplierCurrentOrderScreen
       Navigator.pushReplacement(
         context,
         MaterialPageRoute(builder: (context) => const SupplierCurrentOrderScreen()),
       );
     } else if (index == 3) {
-      // 👈 Notification ટેબ પર ક્લિક કરતાં SupplierNotificationScreen પર જશે
+      // 👈 Clicking Notification tab navigates to SupplierNotificationScreen
       Navigator.pushReplacement(
         context,
         MaterialPageRoute(builder: (context) => const SupplierNotificationScreen()),
@@ -74,7 +74,7 @@ class _SettingScreenState extends State<SettingScreen> {
             ElevatedButton(
               style: AppStyles.dialogConfirmButtonStyle,
               onPressed: () {
-                Navigator.pop(dialogContext); // Dialog બંધ કરવા
+                Navigator.pop(dialogContext); // Close dialog
                 Navigator.pushAndRemoveUntil(
                   context,
                   MaterialPageRoute(builder: (context) => const LoginScreen()),
@@ -97,7 +97,7 @@ class _SettingScreenState extends State<SettingScreen> {
     return Scaffold(
       backgroundColor: AppColors.primaryNavy,
 
-      // 👈 ૨. Body (Settings Options)
+      // 👈 2. Body (Settings Options)
       body: SafeArea(
         child: SingleChildScrollView(
           physics: const BouncingScrollPhysics(),
@@ -120,7 +120,7 @@ class _SettingScreenState extends State<SettingScreen> {
                           color: AppColors.accentOrange,
                           size: 20,
                         ),
-                        // 👈 ૨. Back Button દબાવતાં સીધું Home Page પર રીડાયરેક્ટ થશે
+                        // 👈 2. Pressing Back Button navigates directly to Home Page
                         onPressed: () {
                           Navigator.pushReplacement(
                             context,
@@ -222,7 +222,7 @@ class _SettingScreenState extends State<SettingScreen> {
         ),
       ),
 
-      // 👈 ૩. Supplier Footer કૉલ કર્યો (Settings ટેબ સિલેક્ટેડ રહેશે)
+      // 👈 3. Supplier Footer (Settings tab selected)
       bottomNavigationBar: CustomFooter(
         selectedIndex: _currentNavIndex, // 2 = Settings Icon Highlighted
         onItemTapped: _onNavTapped,

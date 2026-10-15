@@ -18,26 +18,26 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   int _currentNavIndex = 0; // 0 = Home Tab
 
-  // 👈 બંને કાર્ડ્સનું View More ઓપન/ક્લોઝ રાખવા માટેના States
+  // 👈 States to toggle View More open/closed for both cards
   bool _isCncExpanded = false;
   bool _isCuttingExpanded = false;
 
-  // 👈 નેવિગેશન બાર પર ક્લિક થતાં હેન્ડલ કરવા માટે
+  // 👈 Handle clicks on navigation bar
   void _onNavTapped(int index) {
     if (index == 1) {
-      // 👈 જો Current Order પર ક્લિક કરે તો SupplierCurrentOrderScreen પર લઈ જશે
+      // 👈 Clicking Current Order navigates to SupplierCurrentOrderScreen
       Navigator.push(
         context,
         MaterialPageRoute(builder: (context) => const SupplierCurrentOrderScreen()),
       );
     } else if (index == 2) {
-      // 👈 જો Settings પર ક્લિક કરે તો SettingScreen પર લઈ જશે
+      // 👈 Clicking Settings navigates to SettingScreen
       Navigator.push(
         context,
         MaterialPageRoute(builder: (context) => const SettingScreen()),
       );
     } else if (index == 3) {
-      // 👈 જો Notification પર ક્લિક કરે તો SupplierNotificationScreen પર લઈ જશે
+      // 👈 Clicking Notification navigates to SupplierNotificationScreen
       Navigator.push(
         context,
         MaterialPageRoute(builder: (context) => const SupplierNotificationScreen()),
@@ -54,7 +54,7 @@ class _HomeScreenState extends State<HomeScreen> {
     return Scaffold(
       backgroundColor: Colors.white,
 
-      // 👈 ૧. Header File Call
+      // 👈 1. Header
       appBar: CustomHeader(
         onProfileTap: () {
           Navigator.push(
@@ -74,19 +74,19 @@ class _HomeScreenState extends State<HomeScreen> {
         },
       ),
 
-      // 👈 ૨. Body (CNC & Cutting Technology Cards)
+      // 👈 2. Body (CNC & Cutting Technology Cards)
       body: SingleChildScrollView(
         physics: const BouncingScrollPhysics(),
         padding: const EdgeInsets.symmetric(horizontal: 20.0, vertical: 24.0),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            // --- કાર્ડ ૧: Best CNC Technology ---
+            // --- Card 1: Best CNC Technology ---
             _buildTechCard(
               imagePath: 'assets/images/i1.jpeg',
               companyName: 'Logo Text Here technology pty.ltd',
               subtitle: 'Best CNC Technology',
-              // 👈 કાર્ડ ૧ નો ખાસ મેસેજ (સ્ક્રીનશોટ મુજબ)
+              // 👈 Card 1 message (as per screenshot)
               description:
                   'High-precision 5-axis CNC machining, milling, and turning operations with tight tolerances (±0.005mm) for aerospace, automotive, and industrial components.',
               isExpanded: _isCncExpanded,
@@ -99,12 +99,12 @@ class _HomeScreenState extends State<HomeScreen> {
 
             const SizedBox(height: 36),
 
-            // --- કાર્ડ ૨: Best Cutting Technology ---
+            // --- Card 2: Best Cutting Technology ---
             _buildTechCard(
               imagePath: 'assets/images/i1.jpeg',
               companyName: 'Logo Text Here technology pty.ltd',
               subtitle: 'Best Cutting Technology',
-              // 👈 કાર્ડ ૨ નો અલગ મેસેજ
+              // 👈 Card 2 message
               description:
                   'Advanced industrial laser, plasma, and waterjet cutting solutions offering superior edge quality and high-speed processing for diverse metal sheets.',
               isExpanded: _isCuttingExpanded,
@@ -120,7 +120,7 @@ class _HomeScreenState extends State<HomeScreen> {
         ),
       ),
 
-      // 👈 ૩. Footer File Call
+      // 👈 3. Footer
       bottomNavigationBar: CustomFooter(
         selectedIndex: _currentNavIndex,
         onItemTapped: _onNavTapped,
@@ -128,7 +128,7 @@ class _HomeScreenState extends State<HomeScreen> {
     );
   }
 
-  // 👈 સર્ક્યુલર લોગો, ટાઈટલ, એરો અને એક્સપાન્ડેબલ મેસેજ બોક્સ
+  // 👈 Circular logo, title, arrow, and expandable message box
   Widget _buildTechCard({
     required String imagePath,
     required String companyName,
@@ -141,7 +141,7 @@ class _HomeScreenState extends State<HomeScreen> {
       child: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
-          // ૧. સર્ક્યુલર લોગો (ઈમેજ)
+          // 1. Circular logo (image)
           Container(
             width: 155,
             height: 155,
@@ -168,7 +168,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
           const SizedBox(height: 14),
 
-          // ૨. કંપની ટાઈટલ
+          // 2. Company title
           Text(
             companyName,
             textAlign: TextAlign.center,
@@ -177,7 +177,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
           const SizedBox(height: 4),
 
-          // ૩. સબટાઈટલ
+          // 3. Subtitle
           Text(
             subtitle,
             textAlign: TextAlign.center,
@@ -186,7 +186,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
           const SizedBox(height: 8),
 
-          // ૪. "View More" ક્લિકેબલ બટન (એરો ઉપર/નીચે થશે)
+          // 4. "View More" clickable button (toggles arrow up/down)
           InkWell(
             onTap: onToggle,
             borderRadius: BorderRadius.circular(8),
@@ -202,8 +202,8 @@ class _HomeScreenState extends State<HomeScreen> {
                   const SizedBox(width: 4),
                   Icon(
                     isExpanded
-                        ? Icons.keyboard_arrow_up   // 👈 ઓપન હોય ત્યારે ઉપરનો એરો
-                        : Icons.keyboard_arrow_down, // 👈 બંધ હોય ત્યારે નીચેનો એરો
+                        ? Icons.keyboard_arrow_up   // 👈 Arrow up when open
+                        : Icons.keyboard_arrow_down, // 👈 Arrow down when closed
                     color: AppColors.darkText,
                     size: 24,
                   ),
@@ -212,7 +212,7 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
           ),
 
-          // ૫. 👈 સ્મૂથ એનિમેશન સાથે ખુલતું મેસેજ બોક્સ (તમારા સ્ક્રીનશોટ મુજબ)
+          // 5. 👈 Expandable message box with smooth animation (as per screenshot)
           AnimatedCrossFade(
             firstChild: const SizedBox(width: double.infinity, height: 0),
             secondChild: Container(

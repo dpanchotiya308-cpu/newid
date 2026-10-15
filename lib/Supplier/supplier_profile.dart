@@ -93,7 +93,7 @@ class _SupplierProfileScreenState extends State<SupplierProfileScreen> {
     return Scaffold(
       backgroundColor: AppColors.primaryNavy,
 
-      // 👈 ૧. Supplier Header (Title: "Profile", Back Button, Menu Button)
+      // 👈 1. Supplier Header (Title: "Profile", Back Button, Menu Button)
       appBar: CustomHeader(
         title: 'Profile',
         centerTitle: true,
@@ -111,7 +111,7 @@ class _SupplierProfileScreenState extends State<SupplierProfileScreen> {
         },
       ),
 
-      // 👈 ૨. Body (Figma Page 9 Responsive & Scrollable)
+      // 👈 2. Body (Figma Page 9 Responsive & Scrollable)
       body: SafeArea(
         child: Center(
           child: ConstrainedBox(
@@ -277,7 +277,7 @@ class _SupplierProfileScreenState extends State<SupplierProfileScreen> {
         ),
       ),
 
-      // 👈 ૩. Supplier Footer (Active on Settings Tab)
+      // 👈 3. Supplier Footer (Active on Settings Tab)
       bottomNavigationBar: CustomFooter(
         selectedIndex: _currentNavIndex,
         onItemTapped: _onNavTapped,

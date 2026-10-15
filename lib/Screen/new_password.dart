@@ -26,7 +26,7 @@ class _NewPasswordScreenState extends State<NewPasswordScreen> {
   }
 
   void _handleSubmit() {
-    // કીબોર્ડ બંધ કરવા
+    // Close keyboard
     FocusScope.of(context).unfocus();
 
     if (_formKey.currentState?.validate() ?? false) {
@@ -54,7 +54,7 @@ class _NewPasswordScreenState extends State<NewPasswordScreen> {
       body: SafeArea(
         child: SingleChildScrollView(
           physics: const BouncingScrollPhysics(),
-          // 👈 2400x1080 સ્ક્રીન માટે પેડિંગ 28 માંથી 20 કર્યું જેથી overflow ન થાય
+          // 👈 Reduced padding from 28 to 20 for 2400x1080 screens to prevent overflow
           padding: const EdgeInsets.symmetric(horizontal: 20.0, vertical: 16.0),
           child: Form(
             key: _formKey,
@@ -78,10 +78,10 @@ class _NewPasswordScreenState extends State<NewPasswordScreen> {
                           size: 22,
                         ),
                         onPressed: () {
-                          // 👈 ઓવરફ્લો અટકાવવા માટે પહેલા કીબોર્ડ બંધ થશે
+                          // 👈 Close keyboard first to prevent overflow
                           FocusScope.of(context).unfocus();
 
-                          // પછી Verification Page પર જશે
+                          // Then navigate to Verification Page
                           if (Navigator.canPop(context)) {
                             Navigator.pop(context);
                           } else {
@@ -103,7 +103,7 @@ class _NewPasswordScreenState extends State<NewPasswordScreen> {
                   ],
                 ),
                 
-                // સ્પેસ એડજસ્ટ કરી જેથી કીબોર્ડ સાથે પણ ફિટ બેસે
+                // Adjusted spacing to fit even with keyboard open
                 const SizedBox(height: 36),
 
                 // 1. Enter New password

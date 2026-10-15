@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'business_home.dart';
 import '../App_Style/App_Screen_Style.dart';
 
 class ContactUsScreen extends StatefulWidget {
@@ -66,6 +67,13 @@ class _ContactUsScreenState extends State<ContactUsScreen> {
                       onPressed: () {
                         if (Navigator.canPop(context)) {
                           Navigator.pop(context);
+                        } else {
+                          Navigator.pushReplacement(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => const BusinessHomeScreen(),
+                            ),
+                          );
                         }
                       },
                     ),

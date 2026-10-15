@@ -13,7 +13,7 @@ class _HelpSupportScreenState extends State<HelpSupportScreen> {
   final TextEditingController _subjectController = TextEditingController();
   final TextEditingController _messageController = TextEditingController();
 
-  // FAQs લિસ્ટ
+  // FAQs list
   final List<Map<String, String>> _faqs = [
     {
       'question': 'How do I track my material workflow?',

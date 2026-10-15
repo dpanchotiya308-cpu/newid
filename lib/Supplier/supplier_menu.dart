@@ -27,7 +27,7 @@ class SupplierMenuScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // 👈 Figma Page 10 મુજબની મેનુ આઇટમ્સ અને તેના આઇકોન્સ
+    // 👈 Menu items and icons as per Figma Page 10
     final List<_SupplierMenuItemData> menuItems = [
       _SupplierMenuItemData(
         title: 'Notifications',
@@ -67,7 +67,7 @@ class SupplierMenuScreen extends StatelessWidget {
       ),
       _SupplierMenuItemData(
         title: 'Conform Order',
-        icon: Icons.notifications_rounded, // Figma Page 10 મુજબનો બેલ આઇકોન
+        icon: Icons.notifications_rounded, // Bell icon as per Figma Page 10
         onTap: () {
           Navigator.push(
             context,
@@ -79,7 +79,7 @@ class SupplierMenuScreen extends StatelessWidget {
       ),
       _SupplierMenuItemData(
         title: 'Stock',
-        icon: Icons.inventory_2_outlined, // Figma Page 10 મુજબનો ક્યુબ / સ્ટોક આઇકોન
+        icon: Icons.inventory_2_outlined, // Cube / Stock icon as per Figma Page 10
         onTap: () {
           Navigator.push(
             context,
@@ -91,7 +91,7 @@ class SupplierMenuScreen extends StatelessWidget {
       ),
       _SupplierMenuItemData(
         title: 'Calculator',
-        icon: Icons.calculate_outlined, // Figma Page 10 મુજબનો કેલ્ક્યુલેટર આઇકોન
+        icon: Icons.calculate_outlined, // Calculator icon as per Figma Page 10
         onTap: () {
           Navigator.push(
             context,
@@ -103,7 +103,7 @@ class SupplierMenuScreen extends StatelessWidget {
       ),
       _SupplierMenuItemData(
         title: 'Settings',
-        icon: Icons.settings_outlined, // Figma Page 10 મુજબનો ગિયર આઇકોન
+        icon: Icons.settings_outlined, // Gear icon as per Figma Page 10
         onTap: () {
           Navigator.push(
             context,
@@ -118,12 +118,12 @@ class SupplierMenuScreen extends StatelessWidget {
     return Scaffold(
       backgroundColor: AppColors.primaryNavy,
 
-      // 👈 ૧. Supplier Header (Back Button, "Menu" Title, No Hamburger Menu)
+      // 👈 1. Supplier Header (Back Button, "Menu" Title, No Hamburger Menu)
       appBar: CustomHeader(
         title: 'Menu',
         showBackButton: true,
         centerTitle: true,
-        showMenuButton: false, // મેનુ પેજ પર હેમ્બર્ગર બટન છુપાવ્યું છે
+        showMenuButton: false, // Hamburger button hidden on Menu page
         onBackTap: () {
           if (Navigator.canPop(context)) {
             Navigator.pop(context);
@@ -136,7 +136,7 @@ class SupplierMenuScreen extends StatelessWidget {
         },
       ),
 
-      // 👈 ૨. Body (Responsive & Scrollable)
+      // 👈 2. Body (Responsive & Scrollable)
       body: SafeArea(
         child: Center(
           child: ConstrainedBox(

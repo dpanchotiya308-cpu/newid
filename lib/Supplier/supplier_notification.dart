@@ -34,7 +34,7 @@ class _SupplierNotificationScreenState
     extends State<SupplierNotificationScreen> {
   final int _currentNavIndex = 3; // 3 = Notification Tab Active
 
-  // 👈 Figma Page 22 મુજબનું Notifications List
+  // 👈 Notifications List as per Figma Page 22
   final List<_SupplierNotificationItem> _notifications = [
     _SupplierNotificationItem(
       id: '1',
@@ -102,7 +102,7 @@ class _SupplierNotificationScreenState
     return Scaffold(
       backgroundColor: AppColors.primaryNavy,
 
-      // 👈 ૧. Supplier Header (Back Arrow, "Notifications" Title, Menu Button)
+      // 👈 1. Supplier Header (Back Arrow, "Notifications" Title, Menu Button)
       appBar: CustomHeader(
         title: 'Notifications',
         showBackButton: true,
@@ -125,7 +125,7 @@ class _SupplierNotificationScreenState
         },
       ),
 
-      // 👈 ૨. Body (Figma Page 22 Responsive & Scrollable)
+      // 👈 2. Body (Figma Page 22 Responsive & Scrollable)
       body: SafeArea(
         child: Center(
           child: ConstrainedBox(
@@ -177,7 +177,7 @@ class _SupplierNotificationScreenState
         ),
       ),
 
-      // 👈 ૩. Supplier Footer (Notification Tab Active)
+      // 👈 3. Supplier Footer (Notification Tab Active)
       bottomNavigationBar: CustomFooter(
         selectedIndex: _currentNavIndex,
         onItemTapped: _onNavTapped,
@@ -185,7 +185,7 @@ class _SupplierNotificationScreenState
     );
   }
 
-  // 👈 Figma Page 22 મુજબનું Notification Card Widget
+  // 👈 Notification Card Widget as per Figma Page 22
   Widget _buildNotificationCard(_SupplierNotificationItem item) {
     return GestureDetector(
       onTap: () {

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import '../App_Style/App_Screen_Style.dart';
-import 'new_password.dart'; // Verify થયા પછી જવા માટે
+import 'new_password.dart'; // Navigate here after verification
 
 class VerificationScreen extends StatefulWidget {
   const VerificationScreen({super.key});
@@ -11,7 +11,7 @@ class VerificationScreen extends StatefulWidget {
 }
 
 class _VerificationScreenState extends State<VerificationScreen> {
-  // 4 OTP Boxes માટેના Controllers
+  // Controllers for 4 OTP Boxes
   final TextEditingController _otp1 = TextEditingController();
   final TextEditingController _otp2 = TextEditingController();
   final TextEditingController _otp3 = TextEditingController();
@@ -56,7 +56,7 @@ class _VerificationScreenState extends State<VerificationScreen> {
       ),
     );
 
-    // Verify થયા પછી New Password પેજ પર જવા માટે
+    // Navigate to New Password page after verification
     Navigator.pushReplacement(
       context,
       MaterialPageRoute(
@@ -70,7 +70,7 @@ class _VerificationScreenState extends State<VerificationScreen> {
     return Scaffold(
       backgroundColor: AppColors.primaryNavy,
       body: SafeArea(
-        // 👈 SingleChildScrollView ઉમેર્યું જેથી ૨૮ પિક્સલનો ઓવરફ્લો સોલ્વ થઈ જાય
+        // 👈 Added SingleChildScrollView to resolve 28-pixel overflow
         child: SingleChildScrollView(
           physics: const BouncingScrollPhysics(),
           padding: const EdgeInsets.symmetric(horizontal: 24.0, vertical: 16.0),
@@ -107,7 +107,7 @@ class _VerificationScreenState extends State<VerificationScreen> {
                 ],
               ),
 
-              // 👈 120 ના બદલે 55 કર્યું જેથી સ્ક્રીન પર પરફેક્ટ બેસે
+              // 👈 Changed from 120 to 55 to fit screen perfectly
               const SizedBox(height: 55),
 
               // 2. "Enter Verification Code" with Blue Underline

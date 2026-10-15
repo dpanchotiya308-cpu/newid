@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/Bussiness/business_register.dart';
 import '../App_Style/App_Screen_Style.dart';
-import 'login_screen.dart'; // 👈 1. Login Page Import કર્યું
-import '../Supplier/supplier_register_screen.dart'; // 👈 2. Supplier Register Page Import કર્યું
+import 'login_screen.dart'; // 👈 1. Login Page imported
+import '../Supplier/supplier_register_screen.dart'; // 👈 2. Supplier Register Page imported
 
 class SelectRoleScreen extends StatefulWidget {
   const SelectRoleScreen({super.key});
@@ -12,12 +12,12 @@ class SelectRoleScreen extends StatefulWidget {
 }
 
 class _SelectRoleScreenState extends State<SelectRoleScreen> {
-  // ડિફોલ્ટ રીતે ખાલી રહેશે
+  // Empty by default
   String _selectedRole = '';
 
-  // Continue / Submit બટનનું લોજિક
+  // Continue / Submit button logic
   void _handleContinue() {
-    // જો કોઈ રોલ સિલેક્ટ ન કર્યો હોય તો
+    // If no role is selected
     if (_selectedRole.isEmpty) {
       ScaffoldMessenger.of(context).showSnackBar(
         const SnackBar(
@@ -28,7 +28,7 @@ class _SelectRoleScreenState extends State<SelectRoleScreen> {
       return;
     }
 
-    // 1. Enterprise Supplier માટે નેવિગેશન
+    // 1. Navigation for Enterprise Supplier
     if (_selectedRole == 'enterprise') {
       Navigator.push(
         context,
@@ -37,7 +37,7 @@ class _SelectRoleScreenState extends State<SelectRoleScreen> {
         ),
       );
     } 
-    // 2. Business માટે નેવિગેશન
+    // 2. Navigation for Business
     else if (_selectedRole == 'business') {
       Navigator.push(
         context,
@@ -70,7 +70,7 @@ class _SelectRoleScreenState extends State<SelectRoleScreen> {
                         Stack(
                           alignment: Alignment.center,
                           children: [
-                            // 1. Back Button (ક્લિક કરતાં Login Page પર જવા માટે)
+                            // 1. Back Button (navigates to Login Page on click)
                             Align(
                               alignment: Alignment.centerLeft,
                               child: IconButton(
@@ -82,7 +82,7 @@ class _SelectRoleScreenState extends State<SelectRoleScreen> {
                                   size: 22,
                                 ),
                                 onPressed: () {
-                                  // 👈 Login Page પર રીડાયરેક્ટ કરવા માટે
+                                  // 👈 Redirect to Login Page
                                   Navigator.pushReplacement(
                                     context,
                                     MaterialPageRoute(

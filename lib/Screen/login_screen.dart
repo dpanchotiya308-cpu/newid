@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import '../App_Style/App_Screen_Style.dart';
-import 'forgot_password_screen.dart'; // Forgot Password પેજ સાથે કનેક્ટ
-import 'role_screen.dart';            // Sign Up ક્લિક કરતાં Role Screen પર જવા માટે
+import 'forgot_password_screen.dart'; // Connect to Forgot Password page
+import 'role_screen.dart'; // Navigate to Role Screen on clicking Sign Up
 import '../Supplier/supplier_home.dart';
 import '../Bussiness/business_home.dart';
 
@@ -41,20 +41,16 @@ class _LoginScreenState extends State<LoginScreen> {
         ),
       );
 
-      // રોલ મુજબ ડેશબોર્ડમાં રીડાયરેક્ટ:
+      // Redirect to dashboard based on role:
       if (_selectedRole == 'supplier') {
         Navigator.pushReplacement(
           context,
-          MaterialPageRoute(
-            builder: (context) => const HomeScreen(),
-          ),
+          MaterialPageRoute(builder: (context) => const HomeScreen()),
         );
       } else {
         Navigator.pushReplacement(
           context,
-          MaterialPageRoute(
-            builder: (context) => const BusinessHomeScreen(),
-          ),
+          MaterialPageRoute(builder: (context) => const BusinessHomeScreen()),
         );
       }
     }
@@ -68,7 +64,10 @@ class _LoginScreenState extends State<LoginScreen> {
         child: Center(
           child: SingleChildScrollView(
             physics: const BouncingScrollPhysics(),
-            padding: const EdgeInsets.symmetric(horizontal: 28.0, vertical: 24.0),
+            padding: const EdgeInsets.symmetric(
+              horizontal: 28.0,
+              vertical: 24.0,
+            ),
             child: Form(
               key: _formKey,
               child: Column(
@@ -85,7 +84,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       child: Image.asset(
                         'assets/images/i1.jpeg',
                         fit: BoxFit.cover,
-                        // જો ઈમેજ ન મળે તો ફોલબેક આઇકોન દેખાશે
+                        // Fallback icon displayed if image not found
                         errorBuilder: (context, error, stackTrace) {
                           return Container(
                             color: AppColors.cardNavy,
@@ -207,7 +206,9 @@ class _LoginScreenState extends State<LoginScreen> {
                       if (value == null || value.trim().isEmpty) {
                         return 'Enter your email';
                       }
-                      if (!RegExp(r'^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$').hasMatch(value)) {
+                      if (!RegExp(
+                        r'^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$',
+                      ).hasMatch(value)) {
                         return 'Enter a valid email address';
                       }
                       return null;
@@ -234,13 +235,13 @@ class _LoginScreenState extends State<LoginScreen> {
                   ),
                   const SizedBox(height: 12),
 
-                  // 5. "Forgot password?" Link (જમણી બાજુ Aligned)
+                  // 5. "Forgot password?" Link (Right Aligned)
                   Align(
                     alignment: Alignment.centerRight,
                     child: GestureDetector(
                       behavior: HitTestBehavior.opaque,
                       onTap: () {
-                        // Forgot Password પેજ પર જવા માટે
+                        // Navigate to Forgot Password page
                         Navigator.push(
                           context,
                           MaterialPageRoute(
@@ -259,7 +260,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   ),
                   const SizedBox(height: 38),
 
-                  // 6. Login Button (ઓરેન્જ Pill બટન)
+                  // 6. Login Button (Orange Pill Button)
                   SizedBox(
                     width: 170,
                     height: 52,
@@ -286,7 +287,7 @@ class _LoginScreenState extends State<LoginScreen> {
                         GestureDetector(
                           behavior: HitTestBehavior.opaque,
                           onTap: () {
-                            // Role Screen પર જવા માટે
+                            // Navigate to Role Screen
                             Navigator.push(
                               context,
                               MaterialPageRoute(
@@ -295,7 +296,10 @@ class _LoginScreenState extends State<LoginScreen> {
                             );
                           },
                           child: const Padding(
-                            padding: EdgeInsets.symmetric(horizontal: 4.0, vertical: 6.0),
+                            padding: EdgeInsets.symmetric(
+                              horizontal: 4.0,
+                              vertical: 6.0,
+                            ),
                             child: Text(
                               'Sign Up',
                               style: AppTextStyles.signUpOrange,
@@ -315,7 +319,7 @@ class _LoginScreenState extends State<LoginScreen> {
     );
   }
 
-  // 🌟 ઇમેજ મુજબનું Dual-tone Input Field (ડાબી બાજુ ગ્રે આઇકોન + જમણી બાજુ ઓરેન્જ ઇનપુટ)
+  // Dual-tone Input Field as per design (Grey icon on left + Orange input on right)
   Widget _buildSplitInputField({
     required String label,
     required TextEditingController controller,
@@ -332,33 +336,27 @@ class _LoginScreenState extends State<LoginScreen> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             // Field Label (White)
-            Text(
-              label,
-              style: AppTextStyles.splitFieldLabel,
-            ),
+            Text(label, style: AppTextStyles.splitFieldLabel),
             const SizedBox(height: 8),
 
             // Dual-tone Rounded Pill Box
             Container(
               height: 52,
               decoration: AppStyles.splitFieldContainerDecoration,
-              clipBehavior: Clip.antiAlias, // ખૂણાઓને રાઉન્ડ કટ કરવા માટે
+              clipBehavior:
+                  Clip.antiAlias, // Anti-alias to clip rounded corners
               child: Row(
                 children: [
-                  // ડાબી બાજુનું ગ્રે આઇકોન કન્ટેનર
+                  // Left side grey icon container
                   Container(
                     width: 52,
                     height: double.infinity,
                     decoration: AppStyles.splitFieldIconContainerDecoration,
                     alignment: Alignment.center,
-                    child: Icon(
-                      icon,
-                      color: Colors.black87,
-                      size: 22,
-                    ),
+                    child: Icon(icon, color: Colors.black87, size: 22),
                   ),
 
-                  // જમણી બાજુનું ઓરેન્જ ટેક્સ્ટફિલ્ડ કન્ટેનર
+                  // Right side orange textfield container
                   Expanded(
                     child: Container(
                       height: double.infinity,
@@ -372,7 +370,9 @@ class _LoginScreenState extends State<LoginScreen> {
                         style: AppTextStyles.splitInputText,
                         cursorColor: Colors.black,
                         onChanged: (text) => state.didChange(text),
-                        decoration: AppStyles.splitFieldInputDecoration(hintText),
+                        decoration: AppStyles.splitFieldInputDecoration(
+                          hintText,
+                        ),
                       ),
                     ),
                   ),
@@ -380,7 +380,7 @@ class _LoginScreenState extends State<LoginScreen> {
               ),
             ),
 
-            // Error Message (જો વેલિડેશન ફેલ થાય તો)
+            // Error Message (shown if validation fails)
             if (state.hasError)
               Padding(
                 padding: const EdgeInsets.only(top: 6.0, left: 14.0),

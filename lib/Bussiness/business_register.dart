@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_application_1/Bussiness/business_home.dart';
 import '../App_Style/App_Screen_Style.dart';
 import '../Resources/profile_data_store.dart';
-import '../Screen/role_screen.dart'; // 👈 ૧. Back Button માટે Role Screen Import
+import '../Screen/role_screen.dart'; // 👈 1. Role Screen import for Back button
 
 class BusinessRegisterScreen extends StatefulWidget {
   const BusinessRegisterScreen({super.key});
@@ -22,7 +22,7 @@ class _BusinessRegisterScreenState extends State<BusinessRegisterScreen> {
 
   bool _obscurePassword = true;
 
-  // 👈 Machine Capabilities Tags ની યાદી
+  // 👈 Machine Capabilities Tags list
   final List<String> _allCapabilities = [
     'CNC',
     'Lathe',
@@ -31,7 +31,7 @@ class _BusinessRegisterScreenState extends State<BusinessRegisterScreen> {
     'Manual Miling',
   ];
 
-  // સ્ક્રીનશોટ મુજબ શરૂઆતમાં 'CNC' અને 'Lathe' સિલેક્ટેડ રહેશે
+  // 'CNC' and 'Lathe' selected initially as per screenshot
   final Set<String> _selectedCapabilities = {'CNC', 'Lathe'};
 
   @override
@@ -43,9 +43,9 @@ class _BusinessRegisterScreenState extends State<BusinessRegisterScreen> {
     super.dispose();
   }
 
-  // 👈 Submit બટન ક્લિક થતાં Home Page પર રીડાયરેક્ટ થશે
+  // 👈 Redirects to Home Page on clicking Submit button
   void _handleSubmit() {
-    // કીબોર્ડ બંધ કરવા
+    // Close keyboard
     FocusScope.of(context).unfocus();
 
     if (_formKey.currentState?.validate() ?? false) {
@@ -76,7 +76,7 @@ class _BusinessRegisterScreenState extends State<BusinessRegisterScreen> {
         ),
       );
 
-      // 👈 Business Home Page પર લઈ જશે
+      // 👈 Navigate to Business Home Page
       Navigator.pushAndRemoveUntil(
         context,
         MaterialPageRoute(builder: (context) => const BusinessHomeScreen()),
@@ -109,7 +109,7 @@ class _BusinessRegisterScreenState extends State<BusinessRegisterScreen> {
                       ),
                       padding: EdgeInsets.zero,
                       constraints: const BoxConstraints(),
-                      // 👈 Back button દબાવતાં Role Page પર રીડાયરેક્ટ થશે
+                      // 👈 Pressing Back button redirects to Role Page
                       onPressed: () {
                         Navigator.pushReplacement(
                           context,
@@ -249,7 +249,7 @@ class _BusinessRegisterScreenState extends State<BusinessRegisterScreen> {
 
                 const SizedBox(height: 16),
 
-                // 👈 Clickable Multi-Select Tags (સ્ક્રીનશોટ મુજબ)
+                // 👈 Clickable Multi-Select Tags (as per screenshot)
                 Wrap(
                   spacing: 12.0,
                   runSpacing: 12.0,

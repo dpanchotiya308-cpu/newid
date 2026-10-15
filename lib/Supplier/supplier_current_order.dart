@@ -41,7 +41,7 @@ class _SupplierCurrentOrderScreenState
     extends State<SupplierCurrentOrderScreen> {
   final int _currentNavIndex = 1; // 1 = Current Order Tab Active
 
-  // 👈 Figma Page 11 મુજબના ૪ ઓર્ડર્સ ડેટા
+  // 👈 4 orders data as per Figma Page 11
   late List<_OrderData> _orders;
 
   @override
@@ -145,7 +145,7 @@ class _SupplierCurrentOrderScreenState
     return Scaffold(
       backgroundColor: AppColors.primaryNavy,
 
-      // 👈 ૧. Supplier Header કૉલ કર્યો (Title: "Current Order", Back Button, Menu Button)
+      // 👈 1. Supplier Header (Title: "Current Order", Back Button, Menu Button)
       appBar: CustomHeader(
         title: 'Current Order',
         showBackButton: true,
@@ -169,7 +169,7 @@ class _SupplierCurrentOrderScreenState
         },
       ),
 
-      // 👈 ૨. Body (Responsive & Scrollable)
+      // 👈 2. Body (Responsive & Scrollable)
       body: SafeArea(
         child: Center(
           child: ConstrainedBox(
@@ -225,7 +225,7 @@ class _SupplierCurrentOrderScreenState
         ),
       ),
 
-      // 👈 ૩. Supplier Footer કૉલ કર્યો (Current Order Tab Active / Highlighted)
+      // 👈 3. Supplier Footer (Current Order Tab Active / Highlighted)
       bottomNavigationBar: CustomFooter(
         selectedIndex: _currentNavIndex, // 1 = Current Order
         onItemTapped: _onNavTapped,
@@ -233,7 +233,7 @@ class _SupplierCurrentOrderScreenState
     );
   }
 
-  // 👈 Figma Page 11 મુજબનું Current Order Card Widget
+  // 👈 Current Order Card Widget as per Figma Page 11
   Widget _buildOrderCard(_OrderData order, int index) {
     return Container(
       decoration: AppStyles.currentOrderCardDecoration,

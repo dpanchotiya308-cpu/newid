@@ -38,7 +38,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
     super.dispose();
   }
 
-  // 👈 2. Register / Submit બટન પર ક્લિક થતાં Setting Page પર રીડાયરેક્ટ થશે
+  // 👈 2. Redirects to Settings Page on clicking Register / Submit button
   void _handleSubmit() {
     if (_formKey.currentState?.validate() ?? false) {
       // 👈 Save registered details to Global Store so Profile Page shows them
@@ -56,7 +56,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
         ),
       );
 
-      // Home page પર રીડાયરેક્ટ કરવા માટે:
+      // Redirect to Home page:
       Navigator.pushReplacement(
         context,
         MaterialPageRoute(
@@ -82,7 +82,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                 // Top Header Row
                 Row(
                   children: [
-                    // Back Button (Role Page પર રીડાયરેક્ટ થશે)
+                    // Back Button (redirects to Role Page)
                     IconButton(
                       padding: EdgeInsets.zero,
                       constraints: const BoxConstraints(),
@@ -268,7 +268,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
 
                 const SizedBox(height: 36),
 
-                // 7. Submit / Register Button (હવે Setting Screen સાથે connected છે)
+                // 7. Submit / Register Button (connected to Setting Screen)
                 Center(
                   child: SizedBox(
                     width: 210,

@@ -35,7 +35,7 @@ class CustomHeader extends StatelessWidget implements PreferredSizeWidget {
           padding: const EdgeInsets.symmetric(horizontal: 16.0),
           child: Row(
             children: [
-              // 👈 1. Left: Back Button અથવા Profile Icon
+              // 👈 1. Left: Back Button or Profile Icon
               if (showBackButton)
                 IconButton(
                   padding: EdgeInsets.zero,
@@ -71,7 +71,7 @@ class CustomHeader extends StatelessWidget implements PreferredSizeWidget {
 
               const SizedBox(width: 14),
 
-              // 👈 2. Title (જો હોય તો)
+              // 👈 2. Title (if present)
               if (title != null)
                 Expanded(
                   child: Text(
@@ -83,7 +83,7 @@ class CustomHeader extends StatelessWidget implements PreferredSizeWidget {
               else
                 const Spacer(),
 
-              // 👈 3. Right Hamburger Menu Icon અથવા Spacer
+              // 👈 3. Right Hamburger Menu Icon or Spacer
               if (showMenuButton)
                 IconButton(
                   onPressed: onMenuTap ?? () {},

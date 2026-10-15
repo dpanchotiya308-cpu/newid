@@ -28,7 +28,7 @@ class BusinessFooter extends StatelessWidget {
               label: 'Home',
             ),
 
-            // 2. Orders (તમારા સ્ક્રીનશોટ મુજબ)
+            // 2. Orders (as per screenshot)
             _buildNavItem(
               index: 1,
               icon: Icons.chat_bubble_outline_rounded,

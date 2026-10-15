@@ -39,7 +39,7 @@ class _OrderData {
 class _BusinessCurrentOrderScreenState extends State<BusinessCurrentOrderScreen> {
   final int _currentNavIndex = 1; // 1 = Orders Tab Active
 
-  // 👈 Figma Page 11 મુજબના ૪ ઓર્ડર્સ ડેટા
+  // 👈 4 orders data as per Figma Page 11
   late List<_OrderData> _orders;
 
   @override
@@ -120,19 +120,19 @@ class _BusinessCurrentOrderScreenState extends State<BusinessCurrentOrderScreen>
     if (index == _currentNavIndex) return;
 
     if (index == 0) {
-      // Home પર જવા માટે
+      // Navigate to Home
       Navigator.pushReplacement(
         context,
         MaterialPageRoute(builder: (context) => const BusinessHomeScreen()),
       );
     } else if (index == 2) {
-      // Settings પર જવા માટે
+      // Navigate to Settings
       Navigator.pushReplacement(
         context,
         MaterialPageRoute(builder: (context) => const SettingScreen()),
       );
     } else if (index == 3) {
-      // Notification પર જવા માટે
+      // Navigate to Notification
       Navigator.pushReplacement(
         context,
         MaterialPageRoute(builder: (context) => const BusinessNotificationScreen()),
@@ -145,7 +145,7 @@ class _BusinessCurrentOrderScreenState extends State<BusinessCurrentOrderScreen>
     return Scaffold(
       backgroundColor: AppColors.primaryNavy,
 
-      // 👈 ૧. Business Header કૉલ કર્યો
+      // 👈 1. Business Header
       appBar: BusinessHeader(
         title: 'Current Order',
         showBackButton: true,
@@ -171,7 +171,7 @@ class _BusinessCurrentOrderScreenState extends State<BusinessCurrentOrderScreen>
         },
       ),
 
-      // 👈 ૨. Body (Responsive & Scrollable)
+      // 👈 2. Body (Responsive & Scrollable)
       body: SafeArea(
         child: Center(
           child: ConstrainedBox(
@@ -227,7 +227,7 @@ class _BusinessCurrentOrderScreenState extends State<BusinessCurrentOrderScreen>
         ),
       ),
 
-      // 👈 ૩. Business Footer કૉલ કર્યો (Orders Tab Active / Highlighted)
+      // 👈 3. Business Footer (Orders Tab Active / Highlighted)
       bottomNavigationBar: BusinessFooter(
         selectedIndex: _currentNavIndex, // 1 = Orders
         onItemTapped: _onNavTapped,
@@ -235,7 +235,7 @@ class _BusinessCurrentOrderScreenState extends State<BusinessCurrentOrderScreen>
     );
   }
 
-  // 👈 Figma Page 11 મુજબનું Current Order Card Widget
+  // 👈 Current Order Card Widget as per Figma Page 11
   Widget _buildOrderCard(_OrderData order, int index) {
     return Container(
       decoration: AppStyles.currentOrderCardDecoration,

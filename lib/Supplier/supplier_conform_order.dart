@@ -43,7 +43,7 @@ class _SupplierConformOrderScreenState
   // Footer navigation index (0 = Home, 1 = Current Order, 2 = Setting, 3 = Notification)
   final int _currentNavIndex = 1;
 
-  // 👈 Figma Page 12 મુજબના ૪ કન્ફર્મ ઓર્ડર કાર્ડ્સ
+  // 👈 4 confirmed order cards as per Figma Page 12
   late List<_ConformOrderData> _orders;
 
   @override
@@ -150,7 +150,7 @@ class _SupplierConformOrderScreenState
     return Scaffold(
       backgroundColor: AppColors.primaryNavy,
 
-      // 👈 ૧. Supplier Header કૉલ કર્યો (Title: "Conform Order", Back Button, Menu Button)
+      // 👈 1. Supplier Header (Title: "Conform Order", Back Button, Menu Button)
       appBar: CustomHeader(
         title: 'Conform Order',
         showBackButton: true,
@@ -174,7 +174,7 @@ class _SupplierConformOrderScreenState
         },
       ),
 
-      // 👈 ૨. Body (Figma Page 12 Responsive & Scrollable)
+      // 👈 2. Body (Figma Page 12 Responsive & Scrollable)
       body: SafeArea(
         child: Center(
           child: ConstrainedBox(
@@ -235,7 +235,7 @@ class _SupplierConformOrderScreenState
         ),
       ),
 
-      // 👈 ૩. Supplier Footer કૉલ કર્યો
+      // 👈 3. Supplier Footer
       bottomNavigationBar: CustomFooter(
         selectedIndex: _currentNavIndex,
         onItemTapped: _onNavTapped,
@@ -243,7 +243,7 @@ class _SupplierConformOrderScreenState
     );
   }
 
-  // 👈 Figma Page 12 મુજબનું Conform Order Card Widget (Trash / Delete Icon)
+  // 👈 Conform Order Card Widget as per Figma Page 12 (Trash / Delete Icon)
   Widget _buildConformOrderCard(_ConformOrderData order, int index) {
     return Container(
       decoration: AppStyles.conformOrderCardDecoration,

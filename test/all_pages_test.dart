@@ -36,6 +36,7 @@ import 'package:flutter_application_1/Bussiness/business_current_order.dart';
 import 'package:flutter_application_1/Bussiness/business_order_status.dart';
 import 'package:flutter_application_1/Bussiness/business_log_material_yield.dart';
 import 'package:flutter_application_1/Bussiness/business_profile.dart';
+import 'package:flutter_application_1/Bussiness/business_order_details.dart';
 
 Widget createTestWidget(Widget child) {
   return MaterialApp(
@@ -153,14 +154,90 @@ void main() {
     expect(find.text('Business Register'), findsOneWidget);
   });
 
-  testWidgets('15. BusinessHomeScreen renders properly', (WidgetTester tester) async {
+  testWidgets('15. BusinessHomeScreen renders properly and Job Inbox cards redirect to Order Details', (WidgetTester tester) async {
     await tester.pumpWidget(createTestWidget(const BusinessHomeScreen()));
     expect(find.text('Business Home'), findsOneWidget);
+    expect(find.text('Job Inbox (New Cards)'), findsOneWidget);
+    expect(find.text('Order #1 - Tech Corp Inc.'), findsOneWidget);
+    expect(find.text('Order #2 - Alpha Ind.'), findsOneWidget);
+
+    // Tap on Order #1 card to redirect to Order #1 Details page
+    await tester.tap(find.text('Order #1 - Tech Corp Inc.'));
+    await tester.pumpAndSettle();
+
+    expect(find.text('Order #1 Details'), findsOneWidget);
+    expect(find.text('Tech Corp Inc.'), findsOneWidget);
+    expect(find.text('Accept Work Order'), findsOneWidget);
+    expect(find.text('Decline Work Order'), findsOneWidget);
+
+    // Tap Accept Work Order - prints and shows Order accepted without redirecting to status page
+    final acceptBtn = find.text('Accept Work Order');
+    await tester.ensureVisible(acceptBtn);
+    await tester.pumpAndSettle();
+    await tester.tap(acceptBtn);
+    await tester.pump();
+    expect(find.text('Order accepted'), findsOneWidget);
+    expect(find.text('Update Status'), findsNothing);
+
+    // Tap Decline Work Order - prints and shows Order declined
+    final declineBtn = find.text('Decline Work Order');
+    await tester.ensureVisible(declineBtn);
+    await tester.pumpAndSettle();
+    await tester.tap(declineBtn);
+    await tester.pumpAndSettle();
+    expect(find.text('Order declined'), findsOneWidget);
   });
 
-  testWidgets('16. Business SettingScreen renders properly', (WidgetTester tester) async {
+  testWidgets('15b. BusinessOrderDetailsScreen renders properly and actions work', (WidgetTester tester) async {
+    await tester.pumpWidget(createTestWidget(const BusinessOrderDetailsScreen()));
+    expect(find.text('Order #1 Details'), findsOneWidget);
+    expect(find.text('Client Information'), findsOneWidget);
+    expect(find.text('Tech Corp Inc.'), findsOneWidget);
+    expect(find.text('PENDING'), findsOneWidget);
+    expect(find.text('18 Feb 2026'), findsOneWidget);
+    expect(find.text('Dimensions & Specs'), findsOneWidget);
+    expect(find.text('Mild Steel (EN8)'), findsOneWidget);
+    expect(find.text('±0.05 mm'), findsOneWidget);
+    expect(find.text('Required'), findsOneWidget);
+
+    // Tap Accept Work Order - shows Order accepted message
+    final acceptButton = find.text('Accept Work Order');
+    await tester.ensureVisible(acceptButton);
+    await tester.pumpAndSettle();
+    await tester.tap(acceptButton);
+    await tester.pump();
+    expect(find.text('Order accepted'), findsOneWidget);
+  });
+
+  testWidgets('16. Business SettingScreen renders properly and back button navigates to Business Home', (WidgetTester tester) async {
     await tester.pumpWidget(createTestWidget(const business_setting.SettingScreen()));
     expect(find.text('Settings'), findsWidgets);
+    expect(find.text('Help & Support'), findsOneWidget);
+    expect(find.text('About Us'), findsOneWidget);
+    expect(find.text('Contact Us'), findsOneWidget);
+    expect(find.text('Change Password'), findsOneWidget);
+
+    // Tap Change Password from Business Settings
+    await tester.tap(find.text('Change Password'));
+    await tester.pumpAndSettle();
+    expect(find.text('Change Password'), findsOneWidget);
+
+    // Tap Back button from Change Password screen
+    final backBtn = find.byIcon(Icons.arrow_back_ios_new_rounded);
+    await tester.tap(backBtn);
+    await tester.pumpAndSettle();
+
+    // Verify it returned to Business Settings
+    expect(find.text('Settings'), findsWidgets);
+
+    // Tap Back button from Business Settings
+    final settingsBackBtn = find.byIcon(Icons.arrow_back_ios_new);
+    await tester.tap(settingsBackBtn);
+    await tester.pumpAndSettle();
+
+    // Verify it returned to Business Home, NOT Supplier Home
+    expect(find.text('Business Home'), findsOneWidget);
+    expect(find.text('Job Inbox (New Cards)'), findsOneWidget);
   });
 
   testWidgets('17. Business AboutUsScreen renders properly', (WidgetTester tester) async {
@@ -395,13 +472,18 @@ void main() {
     expect(find.text('mm'), findsOneWidget);
     expect(find.text('Piece'), findsOneWidget);
 
-    final sendButton = find.text('Send');
+    final textFields = find.byType(TextField);
+    await tester.enterText(textFields.at(0), '10');
+    await tester.enterText(textFields.at(1), '20');
+    await tester.enterText(textFields.at(2), '5');
+
+    final sendButton = find.text('Send Order');
     expect(sendButton, findsOneWidget);
     await tester.ensureVisible(sendButton);
     await tester.pumpAndSettle();
     await tester.tap(sendButton);
     await tester.pump();
-    expect(find.textContaining('Order Sent Successfully'), findsOneWidget);
+    expect(find.textContaining('Order Sent to'), findsOneWidget);
   });
 
   testWidgets('32. Supplier ConformOrderScreen renders properly and delete works', (WidgetTester tester) async {

@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 
-/// 1. એપ્લિકેશનના કલર્સ (App Colors)
+/// 1. Application Colors (App Colors)
 class AppColors {
-  static const Color primaryNavy = Color(0xFF2C3E5D); // મુખ્ય બેકગ્રાઉન્ડ
-  static const Color cardNavy = Color(0xFF202F46); // કાર્ડ્સનું બેકગ્રાઉન્ડ
+  static const Color primaryNavy = Color(0xFF2C3E5D); // Primary Background
+  static const Color cardNavy = Color(0xFF202F46); // Card Background
   static const Color cardNavyLight = Color(0xFF263852);
   static const Color selectedBorder = Color(0xFF2196F3);
-  static const Color accentOrange = Color(0xFFF9A81B); // મેઈન ઓરેન્જ કલર
+  static const Color accentOrange = Color(0xFFF9A81B); // Main Accent Orange
   static const Color inputTextColor = Color(0xFF1E1E1E);
   static const Color iconColor = Color(0xFF2D2D2D);
   static const Color subtitleGray = Color(0xFF8FA3BE);
@@ -30,9 +30,9 @@ class AppColors {
   static const Color orderTextDark = Color(0xFF1E1E1E);
 }
 
-/// 2. ફોન્ટ સ્ટાઇલ્સ (Typography / Text Styles)
+/// 2. Typography / Text Styles
 class AppTextStyles {
-  // હેડર ટાઇટલ્સ
+  // Header Titles
   static const TextStyle headerTitle = TextStyle(
     color: AppColors.white,
     fontSize: 24,
@@ -47,7 +47,7 @@ class AppTextStyles {
     letterSpacing: 0.2,
   );
 
-  // સબટાઇટલ (About Us, Contact Us, Role માટે)
+  // Subtitle (For About Us, Contact Us, Role)
   static const TextStyle subtitle = TextStyle(
     color: AppColors.subtitleGray,
     fontSize: 14,
@@ -60,7 +60,7 @@ class AppTextStyles {
     fontWeight: FontWeight.w400,
   );
 
-  // સેક્શન હેડિંગ
+  // Section Heading
   static const TextStyle sectionTitle = TextStyle(
     color: AppColors.white,
     fontSize: 18,
@@ -68,7 +68,7 @@ class AppTextStyles {
     letterSpacing: 0.2,
   );
 
-  // સામાન્ય કાર્ડ ટાઇટલ અને ડિસ્ક્રિપ્શન (About Us અને Contact Us માટે)
+  // General Card Title & Description (For About Us and Contact Us)
   static const TextStyle cardTitle = TextStyle(
     color: AppColors.white,
     fontSize: 16,
@@ -81,14 +81,14 @@ class AppTextStyles {
     height: 1.4,
   );
 
-  // બ્રાન્ડ નેમ (SubSetu)
+  // Brand Name (SubSetu)
   static const TextStyle brandTitle = TextStyle(
     color: AppColors.white,
     fontSize: 24,
     fontWeight: FontWeight.bold,
   );
 
-  // રોલ કાર્ડ ટાઇટલ અને ડિસ્ક્રિપ્શન
+  // Role Card Title & Description
   static const TextStyle roleCardTitle = TextStyle(
     color: AppColors.white,
     fontSize: 18,
@@ -114,7 +114,7 @@ class AppTextStyles {
     fontWeight: FontWeight.w400,
   );
 
-  // FAQ ક્વેશ્ચન અને આન્સર
+  // FAQ Question & Answer
   static const TextStyle faqQuestion = TextStyle(
     color: AppColors.white,
     fontSize: 15,
@@ -127,27 +127,27 @@ class AppTextStyles {
     height: 1.4,
   );
 
-  // ઇનપુટ ફિલ્ડ લેબલ
+  // Input Field Label
   static const TextStyle fieldLabel = TextStyle(
     color: AppColors.white,
     fontSize: 15,
     fontWeight: FontWeight.w500,
   );
 
-  // ઇનપુટ ટેક્સ્ટ
+  // Input Text
   static const TextStyle inputText = TextStyle(
     color: AppColors.inputTextColor,
     fontSize: 15,
     fontWeight: FontWeight.w500,
   );
 
-  // Hint ટેક્સ્ટ
+  // Hint Text
   static TextStyle inputHint = TextStyle(
     color: AppColors.inputTextColor.withValues(alpha: 0.6),
     fontSize: 15,
   );
 
-  // Submit / Send / Continue બટન ટેક્સ્ટ
+  // Submit / Send / Continue Button Text
   static const TextStyle submitButtonText = TextStyle(
     fontSize: 22,
     fontWeight: FontWeight.w900,
@@ -155,25 +155,25 @@ class AppTextStyles {
     letterSpacing: 0.5,
   );
 
-  // ફૂટર ટેક્સ્ટ
+  // Footer Text
   static const TextStyle footerText = TextStyle(
     color: AppColors.white,
     fontSize: 15,
   );
 
-  // ફૂટર સાઇન-ઇન / લિંક ટેક્સ્ટ
+  // Footer Sign-In / Link Text
   static const TextStyle footerLink = TextStyle(
     color: AppColors.accentOrange,
     fontSize: 15,
     fontWeight: FontWeight.bold,
   );
 
-  // એરર મેસેજ સ્ટાઇલ
+  // Error Message Style
   static const TextStyle errorText = TextStyle(
     color: AppColors.errorColor,
     fontWeight: FontWeight.w500,
   );
-  // અંડરલાઇન સાથેનું ટાઇટલ
+  // Title with Underline
   static const TextStyle verificationTitle = TextStyle(
     color: AppColors.white,
     fontSize: 22,
@@ -181,7 +181,7 @@ class AppTextStyles {
     decoration: TextDecoration.underline,
     decorationThickness: 2.0,
   );
-  // OTP સર્કલ અંદરના બોલ્ડ નંબર્સ
+  // Bold OTP numbers inside circle
   static const TextStyle otpDigitText = TextStyle(
     color: Colors.black,
     fontSize: 26,
@@ -484,7 +484,7 @@ class AppTextStyles {
     color: Color(0xFF00E676), // Green Performance Tag
   );
 
-  // Supplier Profile Screen Styles (Figma Page 9)
+  // Supplier Profile Screen Styles
   static const TextStyle supplierProfileLabel = TextStyle(
     fontSize: 18,
     fontWeight: FontWeight.bold,
@@ -498,7 +498,7 @@ class AppTextStyles {
     color: Colors.white,
   );
 
-  // Supplier Menu Screen Styles (Figma Page 10)
+  // Supplier Menu Screen Styles
   static const TextStyle supplierMenuItemText = TextStyle(
     fontSize: 22,
     fontWeight: FontWeight.bold,
@@ -506,7 +506,7 @@ class AppTextStyles {
     letterSpacing: 0.3,
   );
 
-  // Supplier Send Order Screen Styles (Figma Page 13)
+  // Supplier Send Order Screen Styles
   static const TextStyle sendOrderLabel = TextStyle(
     fontSize: 20,
     fontWeight: FontWeight.bold,
@@ -644,9 +644,7 @@ class AppTextStyles {
     fontWeight: FontWeight.bold,
   );
 
-  static const TextStyle whiteInputFieldText = TextStyle(
-    color: Colors.white,
-  );
+  static const TextStyle whiteInputFieldText = TextStyle(color: Colors.white);
 
   static const TextStyle modalCapabilitySelected = TextStyle(
     fontSize: 13,
@@ -731,9 +729,7 @@ class AppTextStyles {
     color: AppColors.subtitleGray,
   );
 
-  static const TextStyle dialogCancel = TextStyle(
-    color: Colors.white70,
-  );
+  static const TextStyle dialogCancel = TextStyle(color: Colors.white70);
 
   static const TextStyle dialogConfirm = TextStyle(
     color: Colors.black,
@@ -771,11 +767,8 @@ class AppTextStyles {
   );
 
   // Home Stats & Expands
-  static TextStyle statCardValue(Color color) => TextStyle(
-        fontSize: 26,
-        fontWeight: FontWeight.bold,
-        color: color,
-      );
+  static TextStyle statCardValue(Color color) =>
+      TextStyle(fontSize: 26, fontWeight: FontWeight.bold, color: color);
 
   static const TextStyle homeExpandDescription = TextStyle(
     fontSize: 13.5,
@@ -870,11 +863,8 @@ class AppTextStyles {
     fontWeight: FontWeight.w400,
   );
 
-  static TextStyle calcButtonText(Color color) => TextStyle(
-        color: color,
-        fontSize: 30,
-        fontWeight: FontWeight.w400,
-      );
+  static TextStyle calcButtonText(Color color) =>
+      TextStyle(color: color, fontSize: 30, fontWeight: FontWeight.w400);
 
   // Headers & Footers
   static const TextStyle headerBarTitle = TextStyle(
@@ -885,28 +875,62 @@ class AppTextStyles {
   );
 
   static TextStyle footerNavLabel(Color color, bool isSelected) => TextStyle(
-        fontSize: 11,
-        color: color,
-        fontWeight: isSelected ? FontWeight.bold : FontWeight.w500,
-      );
+    fontSize: 11,
+    color: color,
+    fontWeight: isSelected ? FontWeight.bold : FontWeight.w500,
+  );
+
+  // Order Details Screen Styles (Figma Page 19)
+  static const TextStyle orderDetailsCardHeader = TextStyle(
+    color: Colors.white,
+    fontSize: 16.5,
+    fontWeight: FontWeight.bold,
+    letterSpacing: 0.2,
+  );
+
+  static const TextStyle orderDetailsLabel = TextStyle(
+    color: AppColors.subtitleGray,
+    fontSize: 14.5,
+    fontWeight: FontWeight.w400,
+  );
+
+  static const TextStyle orderDetailsValue = TextStyle(
+    color: Colors.white,
+    fontSize: 14.5,
+    fontWeight: FontWeight.w500,
+  );
+
+  static const TextStyle orderDetailsStatusPending = TextStyle(
+    color: AppColors.accentOrange,
+    fontSize: 14.5,
+    fontWeight: FontWeight.bold,
+    letterSpacing: 0.5,
+  );
+
+  static const TextStyle orderDetailButtonText = TextStyle(
+    fontSize: 16.5,
+    fontWeight: FontWeight.bold,
+    color: Colors.white,
+    letterSpacing: 0.3,
+  );
 }
 
-/// 3. ઇનપુટ, કાર્ડ અને બટન ડેકોરેશન (Widget Styles)
+/// 3. Input, Card and Button Decorations (Widget Styles)
 class AppStyles {
-  // About Us અને Contact Us કાર્ડ ડેકોરેશન (નવું ઉમેર્યું)
+  // About Us and Contact Us Card Decoration
   static BoxDecoration cardDecoration = BoxDecoration(
     color: AppColors.cardNavy,
     borderRadius: BorderRadius.circular(18),
     border: Border.all(color: Colors.white10),
   );
 
-  // કોન્ટેક્ટ આઇકોન સર્કલ બેકગ્રાઉન્ડ
+  // Contact Icon Circle Background
   static BoxDecoration iconCircleDecoration = BoxDecoration(
     color: AppColors.accentOrange.withValues(alpha: 0.15),
     shape: BoxShape.circle,
   );
 
-  // Support Action Cards ડેકોરેશન
+  // Support Action Cards Decoration
   static BoxDecoration supportCardDecoration = BoxDecoration(
     color: AppColors.cardNavy,
     borderRadius: BorderRadius.circular(16),
@@ -1030,13 +1054,13 @@ class AppStyles {
     borderRadius: BorderRadius.circular(24),
   );
 
-  // OTP ગોળાકાર બોક્સ ડેકોરેશન
+  // OTP Circular Box Decoration
   static const BoxDecoration otpCircleDecoration = BoxDecoration(
     color: AppColors.otpCircleFill,
     shape: BoxShape.circle,
   );
 
-  // બે-કલર વાળા Pill Input Box નું ડેકોરેશન
+  // Dual-tone Pill Input Box Decoration
   static BoxDecoration splitInputBoxDecoration = BoxDecoration(
     borderRadius: BorderRadius.circular(26),
   );
@@ -1062,7 +1086,7 @@ class AppStyles {
     );
   }
 
-  // સિંગલ લાઇન ઇનપુટ બોક્સ ડેકોરેશન
+  // Single Line Input Box Decoration
   static InputDecoration inputDecoration({
     String? hintText,
     Widget? prefixIcon,
@@ -1084,7 +1108,7 @@ class AppStyles {
     );
   }
 
-  // મલ્ટીલાઇન મેસેજ બોક્સ માટેનું ડેકોરેશન (Contact Us & Support માટે)
+  // Multiline Text Area Box Decoration (For Contact Us & Support)
   static InputDecoration textAreaDecoration({String? hintText}) {
     return InputDecoration(
       filled: true,
@@ -1107,7 +1131,7 @@ class AppStyles {
     elevation: 4,
     shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(28)),
   );
-  // New Password સ્ક્રીનના ઇનપુટ બોક્સ માટે (Image મુજબનો Error Color સાથેનું Decoration)
+  // Grey Input Box Decoration for New Password & Profile (Matches Figma style)
   static InputDecoration greyInputDecoration({
     required String hintText,
     Widget? prefixIcon,
@@ -1115,18 +1139,20 @@ class AppStyles {
   }) {
     return InputDecoration(
       filled: true,
-      fillColor: const Color(0xFF707F95), // ઇમેજનો exact સ્લેટ ગ્રે-બ્લુ કલર
+      fillColor: const Color(
+        0xFF707F95,
+      ), // Slate grey-blue color matching mockup
       hintText: hintText,
       hintStyle: const TextStyle(
-        color: Colors.white, // ઇમેજમાં હિન્ટ ટેક્સ્ટ વાઇટ છે
+        color: Colors.white, // White hint text matching mockup
         fontSize: 16,
         fontWeight: FontWeight.w400,
       ),
       prefixIcon: prefixIcon,
       suffixIcon: suffixIcon,
-      // ઇમેજ જેવી ઊંચાઈ અને અંદરની જગ્યા
+      // Pill height and internal padding
       contentPadding: const EdgeInsets.symmetric(horizontal: 24, vertical: 18),
-      // ઇમેજ જેવો જ સંપૂર્ણ Pill / Oval શેપ
+      // Full Pill / Oval Shape
       border: OutlineInputBorder(
         borderRadius: BorderRadius.circular(32),
         borderSide: BorderSide.none,
@@ -1140,14 +1166,14 @@ class AppStyles {
         borderSide: const BorderSide(color: Colors.white30, width: 1.5),
       ),
 
-      // 🟠 ઇમેજ મુજબનો Error Message Color (Enter company name વાળો કલર)
+      // Error message style matching mockup
       errorStyle: const TextStyle(
-        color: Color(0xFFF5A344), // સ્ક્રીનશોટનો exact warm orange કલર
+        color: Color(0xFFF5A344), // Warm orange error color
         fontSize: 13,
         fontWeight: FontWeight.w500,
       ),
 
-      // એરર આવે ત્યારે પણ Pill શેપ જળવાઈ રહે તે માટે
+      // Maintain pill shape on error
       errorBorder: OutlineInputBorder(
         borderRadius: BorderRadius.circular(32),
         borderSide: BorderSide.none,
@@ -1236,9 +1262,9 @@ class AppStyles {
   );
 
   static BoxDecoration roleSegmentDecoration(bool isSelected) => BoxDecoration(
-        color: isSelected ? AppColors.accentOrange : Colors.transparent,
-        borderRadius: BorderRadius.circular(26),
-      );
+    color: isSelected ? AppColors.accentOrange : Colors.transparent,
+    borderRadius: BorderRadius.circular(26),
+  );
 
   static BoxDecoration splitFieldContainerDecoration = BoxDecoration(
     borderRadius: BorderRadius.circular(26),
@@ -1293,25 +1319,18 @@ class AppStyles {
 
   static ButtonStyle modalSaveButtonStyle = ElevatedButton.styleFrom(
     backgroundColor: AppColors.accentOrange,
-    shape: RoundedRectangleBorder(
-      borderRadius: BorderRadius.circular(26),
-    ),
+    shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(26)),
   );
 
   static ButtonStyle dialogConfirmButtonStyle = ElevatedButton.styleFrom(
     backgroundColor: AppColors.accentOrange,
-    shape: RoundedRectangleBorder(
-      borderRadius: BorderRadius.circular(16),
-    ),
+    shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
   );
 
   static BoxDecoration editProfilePillDecoration = BoxDecoration(
     color: AppColors.cardNavy,
     borderRadius: BorderRadius.circular(20),
-    border: Border.all(
-      color: Colors.white12,
-      width: 0.8,
-    ),
+    border: Border.all(color: Colors.white12, width: 0.8),
   );
 
   static BoxDecoration businessInfoCardDecoration = BoxDecoration(
@@ -1334,9 +1353,7 @@ class AppStyles {
   static ButtonStyle createBusinessButtonStyle = ElevatedButton.styleFrom(
     backgroundColor: AppColors.accentOrange,
     elevation: 0,
-    shape: RoundedRectangleBorder(
-      borderRadius: BorderRadius.circular(28.0),
-    ),
+    shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(28.0)),
   );
 
   // About Us Brand Logo
@@ -1373,10 +1390,7 @@ class AppStyles {
   static BoxDecoration supplierHomeExpandDecoration = BoxDecoration(
     color: const Color(0xFFF8F9FA),
     borderRadius: BorderRadius.circular(14.0),
-    border: Border.all(
-      color: const Color(0xFFE0E0E0),
-      width: 1.0,
-    ),
+    border: Border.all(color: const Color(0xFFE0E0E0), width: 1.0),
   );
 
   // Log Material Yield Submit Button Style
@@ -1384,9 +1398,7 @@ class AppStyles {
     backgroundColor: AppColors.accentOrange,
     foregroundColor: AppColors.buttonTextColor,
     elevation: 0,
-    shape: RoundedRectangleBorder(
-      borderRadius: BorderRadius.circular(26),
-    ),
+    shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(26)),
   );
 
   // Notification Dot Decoration
@@ -1429,22 +1441,18 @@ class AppStyles {
   // Supplier Profile Screen Update Button
   static ButtonStyle supplierProfileUpdateButtonStyle =
       ElevatedButton.styleFrom(
-    backgroundColor: AppColors.accentOrange,
-    foregroundColor: AppColors.buttonTextColor,
-    elevation: 0,
-    shape: RoundedRectangleBorder(
-      borderRadius: BorderRadius.circular(28),
-    ),
-  );
+        backgroundColor: AppColors.accentOrange,
+        foregroundColor: AppColors.buttonTextColor,
+        elevation: 0,
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(28)),
+      );
 
   // Supplier Send Order Screen
   static ButtonStyle sendOrderButtonStyle = ElevatedButton.styleFrom(
     backgroundColor: AppColors.accentOrange,
     foregroundColor: AppColors.buttonTextColor,
     elevation: 0,
-    shape: RoundedRectangleBorder(
-      borderRadius: BorderRadius.circular(28),
-    ),
+    shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(28)),
   );
 
   static const InputDecoration borderlessInputDecoration = InputDecoration(
@@ -1456,10 +1464,7 @@ class AppStyles {
   // Header & Footer Decorations
   static BoxDecoration headerProfileIconDecoration = BoxDecoration(
     shape: BoxShape.circle,
-    border: Border.all(
-      color: AppColors.accentOrange,
-      width: 2.2,
-    ),
+    border: Border.all(color: AppColors.accentOrange, width: 2.2),
   );
 
   static const BoxDecoration footerDecoration = BoxDecoration(
@@ -1471,9 +1476,20 @@ class AppStyles {
 
   static const BoxDecoration supplierFooterDecoration = BoxDecoration(
     color: AppColors.primaryNavy,
-    border: Border(
-      top: BorderSide(color: Colors.white12, width: 0.5),
-    ),
+    border: Border(top: BorderSide(color: Colors.white12, width: 0.5)),
+  );
+
+  // Order Details Screen Styles (Figma Page 19)
+  static BoxDecoration orderDetailsCardDecoration = BoxDecoration(
+    color: AppColors.cardNavy,
+    borderRadius: BorderRadius.circular(14.0),
+    border: Border.all(color: Colors.white10),
+  );
+
+  static ButtonStyle orderDetailActionButtonStyle = ElevatedButton.styleFrom(
+    backgroundColor: AppColors.accentOrange,
+    foregroundColor: Colors.white,
+    elevation: 0,
+    shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(28)),
   );
 }
-

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'business_home.dart';
 import '../App_Style/App_Screen_Style.dart';
 
 class AboutUsScreen extends StatelessWidget {
@@ -34,6 +35,13 @@ class AboutUsScreen extends StatelessWidget {
                       onPressed: () {
                         if (Navigator.canPop(context)) {
                           Navigator.pop(context);
+                        } else {
+                          Navigator.pushReplacement(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => const BusinessHomeScreen(),
+                            ),
+                          );
                         }
                       },
                     ),

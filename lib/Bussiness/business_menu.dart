@@ -41,7 +41,7 @@ class BusinessMenuScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // 👈 Figma Page 18 મુજબના ૭ મેનુ આઇટમ્સ
+    // 👈 7 menu items as per Figma Page 18
     final List<_MenuItemData> menuItems = [
       _MenuItemData(
         title: 'Notifications',
@@ -93,7 +93,7 @@ class BusinessMenuScreen extends StatelessWidget {
       ),
       _MenuItemData(
         title: 'Calculator',
-        icon: Icons.inventory_2_outlined, // Figma Page 18 મુજબનો ક્યુબ આઇકોન
+        icon: Icons.inventory_2_outlined, // Cube icon as per Figma Page 18
         onTap: () {
           Navigator.push(
             context,
@@ -105,7 +105,7 @@ class BusinessMenuScreen extends StatelessWidget {
       ),
       _MenuItemData(
         title: 'Help & Support',
-        icon: Icons.calculate_outlined, // Figma Page 18 મુજબનો કેલ્ક્યુલેટર/મેથ આઇકોન
+        icon: Icons.calculate_outlined, // Calculator/math icon as per Figma Page 18
         onTap: () {
           Navigator.push(
             context,
@@ -117,7 +117,7 @@ class BusinessMenuScreen extends StatelessWidget {
       ),
       _MenuItemData(
         title: 'Contact Us',
-        icon: Icons.settings_outlined, // Figma Page 18 મુજબનો ગિયર આઇકોન
+        icon: Icons.settings_outlined, // Gear icon as per Figma Page 18
         onTap: () {
           Navigator.push(
             context,
@@ -132,12 +132,12 @@ class BusinessMenuScreen extends StatelessWidget {
     return Scaffold(
       backgroundColor: AppColors.primaryNavy,
 
-      // 👈 ૧. Business Header (Back Button, "Menu" Title)
+      // 👈 1. Business Header (Back Button, "Menu" Title)
       appBar: BusinessHeader(
         title: 'Menu',
         showBackButton: true,
         centerTitle: true,
-        showMenuButton: false, // મેનુ પેજ પર હેમ્બર્ગર બટન છુપાવ્યું છે
+        showMenuButton: false, // Hamburger button hidden on Menu page
         onBackTap: () {
           if (Navigator.canPop(context)) {
             Navigator.pop(context);
@@ -150,7 +150,7 @@ class BusinessMenuScreen extends StatelessWidget {
         },
       ),
 
-      // 👈 ૨. Body (Responsive & Scrollable)
+      // 👈 2. Body (Responsive & Scrollable)
       body: SafeArea(
         child: Center(
           child: ConstrainedBox(
@@ -192,7 +192,7 @@ class BusinessMenuScreen extends StatelessWidget {
         ),
       ),
 
-      // 👈 ૩. Business Footer કૉલ કર્યો
+      // 👈 3. Business Footer
       bottomNavigationBar: BusinessFooter(
         selectedIndex: -1, // No tab active when on Menu
         onItemTapped: (index) => _onNavTapped(context, index),

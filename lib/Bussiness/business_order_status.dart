@@ -32,7 +32,7 @@ class _StageItem {
 class _BusinessOrderStatusScreenState extends State<BusinessOrderStatusScreen> {
   final int _currentNavIndex = 1; // 1 = Orders Tab Active
 
-  // 👈 Figma Page 20 મુજબના ૪ સ્ટેજીસ
+  // 👈 4 stages as per Figma Page 20
   late List<_StageItem> _stages;
 
   @override
@@ -63,7 +63,7 @@ class _BusinessOrderStatusScreenState extends State<BusinessOrderStatusScreen> {
     ];
   }
 
-  // 👈 1-Tap: Mark as Ready બટનનું એક્શન
+  // 👈 1-Tap: Action for "Mark as Ready" button
   void _markAsReady() {
     setState(() {
       final isAlreadyReady = _stages[3].isCompleted;
@@ -126,7 +126,7 @@ class _BusinessOrderStatusScreenState extends State<BusinessOrderStatusScreen> {
     return Scaffold(
       backgroundColor: AppColors.primaryNavy,
 
-      // 👈 ૧. Business Header (Title: "Update Status", Subtitle: "Order #1 - 4-Stage Sync")
+      // 👈 1. Business Header (Title: "Update Status", Subtitle: "Order #1 - 4-Stage Sync")
       appBar: BusinessHeader(
         title: 'Update Status',
         subtitle: 'Order #1 - 4-Stage Sync',
@@ -152,7 +152,7 @@ class _BusinessOrderStatusScreenState extends State<BusinessOrderStatusScreen> {
         },
       ),
 
-      // 👈 ૨. Body (Responsive & Interactive)
+      // 👈 2. Body (Responsive & Interactive)
       body: SafeArea(
         child: Center(
           child: ConstrainedBox(
@@ -203,7 +203,7 @@ class _BusinessOrderStatusScreenState extends State<BusinessOrderStatusScreen> {
         ),
       ),
 
-      // 👈 ૩. Business Footer કૉલ કર્યો (Orders Tab Active)
+      // 👈 3. Business Footer (Orders Tab Active)
       bottomNavigationBar: BusinessFooter(
         selectedIndex: _currentNavIndex, // 1 = Orders
         onItemTapped: _onNavTapped,
@@ -211,7 +211,7 @@ class _BusinessOrderStatusScreenState extends State<BusinessOrderStatusScreen> {
     );
   }
 
-  // 👈 Figma Page 20 મુજબનું Stage Row Widget
+  // 👈 Stage Row Widget as per Figma Page 20
   Widget _buildStageRow(_StageItem stage, int index) {
     TextStyle titleStyle;
     if (stage.isActive) {

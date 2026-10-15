@@ -33,7 +33,7 @@ class _NotificationItem {
 class _BusinessNotificationScreenState extends State<BusinessNotificationScreen> {
   final int _currentNavIndex = 3; // 3 = Notification Tab Active
 
-  // 👈 Figma Page 22 મુજબ નોટિફિકેશન્સ લિસ્ટ
+  // 👈 Notifications list as per Figma Page 22
   final List<_NotificationItem> _notifications = [
     _NotificationItem(
       id: '1',
@@ -77,19 +77,19 @@ class _BusinessNotificationScreenState extends State<BusinessNotificationScreen>
     if (index == _currentNavIndex) return;
 
     if (index == 0) {
-      // Home પર જવા માટે
+      // Navigate to Home
       Navigator.pushReplacement(
         context,
         MaterialPageRoute(builder: (context) => const BusinessHomeScreen()),
       );
     } else if (index == 1) {
-      // Current Order પર જવા માટે
+      // Navigate to Current Order
       Navigator.pushReplacement(
         context,
         MaterialPageRoute(builder: (context) => const BusinessCurrentOrderScreen()),
       );
     } else if (index == 2) {
-      // Settings પર જવા માટે
+      // Navigate to Settings
       Navigator.pushReplacement(
         context,
         MaterialPageRoute(builder: (context) => const SettingScreen()),
@@ -102,7 +102,7 @@ class _BusinessNotificationScreenState extends State<BusinessNotificationScreen>
     return Scaffold(
       backgroundColor: AppColors.primaryNavy,
 
-      // 👈 ૧. Business Header (Back Button, "Notifications" Title & Menu Icon)
+      // 👈 1. Business Header (Back Button, "Notifications" Title & Menu Icon)
       appBar: BusinessHeader(
         title: 'Notifications',
         showBackButton: true,
@@ -126,7 +126,7 @@ class _BusinessNotificationScreenState extends State<BusinessNotificationScreen>
         },
       ),
 
-      // 👈 ૨. Body (Responsive & Scrollable)
+      // 👈 2. Body (Responsive & Scrollable)
       body: SafeArea(
         child: Center(
           child: ConstrainedBox(
@@ -175,7 +175,7 @@ class _BusinessNotificationScreenState extends State<BusinessNotificationScreen>
         ),
       ),
 
-      // 👈 ૩. Business Footer (Notification Tab Active / Highlighted)
+      // 👈 3. Business Footer (Notification Tab Active / Highlighted)
       bottomNavigationBar: BusinessFooter(
         selectedIndex: _currentNavIndex, // 3 = Notification
         onItemTapped: _onNavTapped,
@@ -183,7 +183,7 @@ class _BusinessNotificationScreenState extends State<BusinessNotificationScreen>
     );
   }
 
-  // 👈 Figma Page 22 મુજબનું Notification Card Widget
+  // 👈 Notification Card Widget as per Figma Page 22
   Widget _buildNotificationCard(_NotificationItem item) {
     return GestureDetector(
       onTap: () {

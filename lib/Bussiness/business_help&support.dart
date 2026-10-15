@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'business_home.dart';
 import '../App_Style/App_Screen_Style.dart';
 
 class HelpSupportScreen extends StatefulWidget {
@@ -13,7 +14,7 @@ class _HelpSupportScreenState extends State<HelpSupportScreen> {
   final TextEditingController _subjectController = TextEditingController();
   final TextEditingController _messageController = TextEditingController();
 
-  // FAQs લિસ્ટ
+  // FAQs list
   final List<Map<String, String>> _faqs = [
     {
       'question': 'How do I track my material workflow?',
@@ -87,6 +88,13 @@ class _HelpSupportScreenState extends State<HelpSupportScreen> {
                       onPressed: () {
                         if (Navigator.canPop(context)) {
                           Navigator.pop(context);
+                        } else {
+                          Navigator.pushReplacement(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => const BusinessHomeScreen(),
+                            ),
+                          );
                         }
                       },
                     ),

@@ -32,7 +32,7 @@ class _ChangePasswordScreenState extends State<ChangePasswordScreen> {
     super.dispose();
   }
 
-  // 👈 2. Submit (Update) બટન પર ક્લિક કરતાં Settings Page પર રીડાયરેક્ટ થશે
+  // 👈 2. Redirects to Settings Page on clicking Submit (Update) button
   void _handleUpdate() {
     FocusScope.of(context).unfocus();
 
@@ -44,7 +44,7 @@ class _ChangePasswordScreenState extends State<ChangePasswordScreen> {
         ),
       );
 
-      // Settings Page પર Redirect કરવા માટે
+      // Redirect to Settings Page
       Navigator.pushReplacement(
         context,
         MaterialPageRoute(
@@ -69,7 +69,7 @@ class _ChangePasswordScreenState extends State<ChangePasswordScreen> {
               children: [
                 const SizedBox(height: 6),
 
-                // 1. Top Header: Back Button (Settings Page પર Redirect થશે) + Centered Title
+                // 1. Top Header: Back Button (redirects to Settings Page) + Centered Title
                 Stack(
                   alignment: Alignment.center,
                   children: [
@@ -85,7 +85,7 @@ class _ChangePasswordScreenState extends State<ChangePasswordScreen> {
                         ),
                         onPressed: () {
                           FocusScope.of(context).unfocus();
-                          // 👈 3. Back Button દબાવતાં સીધું Settings Page પર જશે
+                          // 👈 3. Pressing Back Button navigates directly to Settings Page
                           Navigator.pushReplacement(
                             context,
                             MaterialPageRoute(
@@ -267,7 +267,7 @@ class _ChangePasswordScreenState extends State<ChangePasswordScreen> {
                 ),
                 const SizedBox(height: 38),
 
-                // 6. "Update" Button (Settings Page પર Redirect થશે)
+                // 6. "Update" Button (redirects to Settings Page)
                 Center(
                   child: SizedBox(
                     width: 200,
